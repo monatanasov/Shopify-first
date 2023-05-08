@@ -1,5 +1,91 @@
+@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);
+                                                            /*--------------------
+                                                                    reset CSS
+                                                            ----------------------*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
 body {
-    background-color: rgb(251, 251, 232);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+                                                            /*--------------------
+                                                                   END OF
+                                                                  reset CSS
+                                                            ----------------------*/
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .homepage {
@@ -9,4 +95,391 @@ body {
 
 .logo {
     width: 25%;
+}
+
+/*--------------------------
+       Announcement bar
+----------------------------*/
+.announcement-bar {
+    position: relative;
+    background-color: #222222;
+    display: flex;
+    padding: 0rem 12rem;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+.announcement-bar .announcement-bar__content {
+    color: #ffffff;
+    font-size: small;
+    font-weight: bold;
+    margin: 0 auto;
+    line-height: 2rem;
+}
+
+.announcement-bar .annountcement-bar__subscribe-wrapper {
+  position: absolute;
+}
+
+.announcement-bar .annountcement-bar__subscribe-wrapper ul li {
+    background-color: #63b151;
+    padding: .25rem 1rem;
+    font-weight: bold;
+}
+
+.announcement-bar .annountcement-bar__subscribe-wrapper ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.announcement-bar .annountcement-bar__subscribe-icon {
+    color: #ffffff;
+    padding-right: .25rem;
+}
+
+                                                            /*--------------------
+                                                                     HEADER
+                                                                LOGO/SEARCH/BTNS
+                                                            ----------------------*/
+
+.header .header__content {
+  background-color: #48a5c9;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 12rem;
+  font-size: 1.5rem;
+}
+
+.header .header__content a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header .header__content .header__search-container form input {
+  width: 40rem;
+  border: none;
+}
+
+.header .header__content .header__search-container button {
+  border: none;
+  background-color: #63b151;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.header .header__content .header__search-container button:hover {
+  background-color: #4a8f3a;
+}
+
+/* remove all borders before and set border to both elements, to prevent space between them */
+/* flex prevents search button to go on new line on low resolutions */
+.header .header__content .header__search-container form {
+  display: flex;
+  /* border: 1px solid black; */
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.header .header__content .header_all-btns {
+  display: flex;
+  font-size: 1.25rem;
+}
+
+.header .header__content .header_all-btns a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header .header__content .header_all-btns .header__login-register {
+  display: flex;
+  gap: 1rem;
+  padding-right: 2rem;
+  border-right: 1px solid lightgray;
+
+}
+
+.header .header__content .header_all-btns .header__cart {
+  padding-left: 2rem;
+}
+
+.header .header__content .header__cart i {
+  margin-right: .5rem;
+  font-size: 1.5rem;
+}
+
+
+                                                            /*--------------------
+                                                                  NAVIGATION
+                                                            ----------------------*/
+
+.header .header__navigation {
+  font-size: 1.25rem;
+  padding: 1rem 12rem;
+}
+
+.header .header__navigation ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.header .header__navigation a {
+  text-decoration: none;
+  color: black;
+}
+
+.header .header__navigation a:hover,
+.header__navigation .header__navigation-dropdown:hover {
+  color:#48a5c9
+}
+
+.header__navigation .header__navigation-dropdown {
+  background: none;
+  border: none;
+  position: relative;
+}
+
+.header__navigation .header__navigation-dropdown:hover {
+  cursor: pointer;
+}
+
+.header__navigation-dropwrapper {
+  min-width: 10%;
+  max-width: 30%;
+  overflow: hidden;
+  position: absolute;
+  border: 1px solid gray;
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.header__navigation-dropwrapper a:hover {
+  color: #48a5c9
+}
+                                                                    /* ---------------------
+                                                                          HEADER END
+                                                                    ------------------------ */
+
+                                                                    /*-------------------
+                                                                        FOOTER START
+                                                                    -------------------*/
+.footer {
+  padding: 2rem 12rem;
+  font-size: 1rem;
+  background-color: #222222;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.footer__wrapper {
+  display: flex;
+}
+
+.footer__contacts .footer__wrapper i {
+  color: lightgrey;
+  padding-top: .25rem;
+  padding-right: .5rem;
+}
+
+.footer a,
+.footer__wrapper p{
+  text-decoration: none;
+  color: lightgrey;
+  font-size: 1rem;
+}
+
+.footer .footer__categories a:hover,
+.footer .footer__store a:hover {
+  color: #48a5c9;
+  margin-left: .25rem;
+  transition: 400ms;
+}
+
+.footer .footer__icons a {
+  color: #63b151;
+}
+
+.footer__title {
+  color: #ffffff;
+  margin-bottom: .5rem;
+}
+
+.footer__payment {
+  flex-wrap: wrap;
+  display: flex;
+  gap: .5rem;
+}
+
+.footer__social ul {
+  display: flex;
+  gap: .75rem;
+  font-size: 1.75rem;
+}
+
+.footer__social ul a{
+  font-size: 1.75rem;
+}
+
+.footer__social ul a i {
+  color: lightgrey;
+}
+
+.footer__social .fa-facebook:hover {
+  color: #4267B2;
+}
+.footer__social .fa-twitter:hover {
+  color: #1DA1F2;;
+}
+
+.footer__social .fa-google-plus:hover {
+  color: #db4a39;
+}
+
+.footer__social .fa-linkedin:hover {
+  color: #0077B5;
+}
+
+.footer__social .fa-instagram:hover {
+  color: #FCAF45;
+}
+
+.footer_copyright {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 12rem;
+  border-top: 1px solid lightgray;
+  background-color: #222222;
+  color: #ffffff;
+}
+                                                                    /*-------------------
+                                                                        FOOTER END
+                                                                    -------------------*/
+
+                                                                      /*-------------
+                                                                          404 page
+                                                                      --------------- */
+
+.template-404 {
+  height: 50vh;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.template-404__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.template-404__content a {
+  text-decoration: none;
+  background-color: #63b151;
+  color:#ffffff;
+  padding: .25rem 1rem;
+  margin-top: .75rem;
+}
+
+.template-404__content a:hover {
+  background-color: #4a8f3a;
+}
+
+
+                                                                      /*-------------
+                                                                          CART page
+                                                                      --------------- */
+
+.cart {
+  padding: 2rem 12rem;
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart_continue-shopping {
+  text-decoration: none;
+  background-color: #63b151;
+  color: #ffffff;
+  padding: .5rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 4px;
+}
+
+.cart_continue-shopping:hover {
+  background-color: #4a8f3a;
+}
+
+.cart__content {
+  margin-top: 3rem;
+}
+
+.cart__content-table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+.cart__content-th {
+  text-align: left;
+  border-bottom: 1px solid lightgray;
+  padding: 0.5rem 0rem;
+}
+
+.cart__content-td {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart__content-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .25rem;
+  margin-bottom: 2rem;
+}
+
+.cart__content-footer button {
+  background-color: #63b151;
+  color: #ffffff;
+  padding: .5rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  border: none;
+  width: 10%;
+  cursor: pointer;
+}
+
+.cart__content-footer button:hover {
+  background-color: #4a8f3a;
+}
+
+.cart__content-missing-img {
+  width: 100px;
+  height: 100px;
+}
+
+                                                                      /*-------------
+                                                                          CART page
+                                                                          when EMPTY
+                                                                      --------------- */
+.cart__empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
 }

@@ -1,0 +1,191 @@
+<div class="footer">
+  <div class="footer__contacts">
+    <div class="footer__contacts-section">
+      <h2 class="footer__title">Contact us at:</h2>
+      <div class="footer__wrapper">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="footer__content">
+          <p>{{ section.settings.contacts_adress }}</p>
+          <p>{{ section.settings.contacts_workhours }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__wrapper">
+      <i class="fas fa-phone-volume"></i>
+      <div class="footer__content">
+        <p>Call us at:</p>
+        <p>{{ section.settings.contacts_phone1 }}</p>
+        <p>{{ section.settings.contacts_phone2 }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__categories">
+    <h2 class="footer__title">Categories</h2>
+    <div class="footer__wrapper">
+      <ul role="list">
+        {% for link in linklists.main-menu.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__store">
+    <h2 class="footer__title">Store info</h2>
+    <div class="footer__wrapper">
+      <ul role="list">
+        {% for link in linklists.footer.links %}
+          <li>
+            <a href="#">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__icons">
+    <h2 class="footer__title">Payment options</h2>
+    <div class="footer__wrapper">
+      <div class="footer__payment">
+        {% if section.settings.icon_amazonpay %}
+          {% render 'icon-amazon' %}
+        {% endif %}
+        {% if section.settings.icon_applepay %}
+          {% render 'icon-apple' %}
+        {% endif %}
+        {% if section.settings.icon_mastercardpay %}
+          {% render 'icon-mastercard' %}
+        {% endif %}
+        {% if section.settings.icon_paypal %}
+          {% render 'icon-paypal' %}
+        {% endif %}
+        {% if section.settings.icon_visapay %}
+          {% render 'icon-visa' %}
+        {% endif %}
+        {% if section.settings.icon_metapay %}
+          {% render 'icon-metapay' %}
+        {% endif %}
+        {% if section.settings.icon_googlepay %}
+          {% render 'icon-googlepay' %}
+        {% endif %}
+      </div>
+    </div>
+    <h2 class="footer__title">Follow us at:</h2>
+    <div class="footer__wrapper">
+      <div class="footer__social">
+        <ul role="list">
+          <li>
+            <a href="{{ section.settings.icon_fburl }}" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-google-plus"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% comment %} this code must be inside main footer div {% endcomment %}
+<div class="footer_copyright">
+  <p>
+    &#169 2023. All Rights Reserved.
+  </p>
+  <p>Delivering awesomeness since 1993.</p>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contacts_adress",
+        "default": "Custom address",
+        "label": "Type your store address here"
+      },
+      {
+        "type": "text",
+        "id": "contacts_workhours",
+        "default": "Custom working hours",
+        "label": "Type your working hours info"
+      },
+      {
+        "type": "text",
+        "id": "contacts_phone1",
+        "default": "+359 123 222222",
+        "label": "Type your first contact phone"
+      },
+      {
+        "type": "text",
+        "id": "contacts_phone2",
+        "default": "+359 123 333333",
+        "label": "Type your second contact phone"
+      }, {
+        "type": "checkbox",
+        "id": "icon_amazonpay",
+        "default": true,
+        "label": "Amazon pay icon"
+      }, {
+        "type": "checkbox",
+        "id": "icon_applepay",
+        "default": true,
+        "label": "Apple pay icon"
+      }, {
+        "type": "checkbox",
+        "id": "icon_mastercardpay",
+        "default": true,
+        "label": "Mastercard icon"
+      }, {
+        "type": "checkbox",
+        "id": "icon_paypal",
+        "default": true,
+        "label": "Paypal icon"
+      }, {
+        "type": "checkbox",
+        "id": "icon_visapay",
+        "default": true,
+        "label": "Visa icon"
+      }, {
+        "type": "checkbox",
+        "id": "icon_metapay",
+        "default": true,
+        "label": "Meta pay icon"
+      }, {
+        "type": "checkbox",
+        "id": "icon_googlepay",
+        "default": true,
+        "label": "Google pay icon"
+      }, {
+        "type": "text",
+        "id": "icon_fburl",
+        "default": "#",
+        "label": "Facebook URL to your official facebook page"
+      }
+    ]
+  }
+{% endschema %}
