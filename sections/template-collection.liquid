@@ -1,15 +1,25 @@
-{% paginate collection.products by 5 %}
-  {% for product in collection.products %}
-    {% if product.featured_image %}
-      <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}">
-    {% else %}
-      {{ 'product-1' | placeholder_svg_tag: 'cart__content-missing-img' }}
-    {% endif %}
-    <span>{{ product.vendor }}</span>
-    <a href="{{ product.url }}">{{ product.title }}</a>
-    <p>{{ product.price | money }}</p>
-  {% else %}
-    <p>There are no products inside of this collection!</p>
-  {% endfor %}
-
-{% endpaginate %}
+<div class="collection__page">
+  {% paginate collection.products by 8 %}
+    <h1 class="collection__page-title">{{ collection.title }}</h1>
+    <div class="collection__page-grid">
+      {% for product in collection.products %}
+        <div class="collection__page-product">
+          <div class="collection__page-image">
+            {% if product.featured_image %}
+              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}">
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+          <div class="collection__page-prodcont">
+            <span>{{ product.vendor }}</span>
+            <a href="{{ product.url }}">{{ product.title }}</a>
+            <p>{{ product.price | money }}</p>
+          </div>
+        </div>
+      {% else %}
+        <p>There are no products inside of this collection!</p>
+      {% endfor %}
+    </div>
+  {% endpaginate %}
+</div>
