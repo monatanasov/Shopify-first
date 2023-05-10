@@ -1,16 +1,12 @@
 {% if cart.item_count > 0 %}
   <div class="cart">
-
     <div class="cart__header">
       <h1>Your cart</h1>
       <a class="cart_continue-shopping" href="{{ routes.all_products_collection_url }}">Continue shopping</a>
     </div>
-
     <div class="cart__content">
-      <form
-        action="{{ routes.cart_url }}"
-        method="POST"
-        novalidate>
+      <form action="{{ routes.cart_url }}"method="POST"novalidate>
+        {% comment %} Table for displaying items inside cart. Everything is wrapped in FORM tag. {% endcomment %}
         <table class="cart__content-table">
           <thead>
             <th class="cart__content-th">Product</th>
@@ -21,6 +17,7 @@
             {% for item in cart.items %}
               <tr class="cart__content-tr">
                 <td class="cart__content-td">
+                  {% comment %} Display product image if there's one, ELSE display Placeholder img {% endcomment %}
                   <a href="{{ item.url }}">
                     {% if item.image %}
                       <img
@@ -32,6 +29,8 @@
                     {% endif %}
                   </a>
                 </td>
+                {% comment %} Display other product info after the image {% endcomment %}
+                {% comment %} forloop returns the NUMBER of the current iteraction  {% endcomment %}
                 <td class="cart__content-td">
                   <a href="{{ item.url }}">{{ item.title | truncatewords: 5 }}</a>
                   <span>{{ item.product.description }}</span>
@@ -48,9 +47,9 @@
               </tr>
             {% endfor %}
           </tbody>
-
         </div>
       </table>
+      {% comment %} REArrange buttons and subtotal in footer using BLOCKS {% endcomment %}
       <div class="cart__content-footer">
         {% for block in section.blocks %}
           {% case block.type %}
@@ -64,10 +63,9 @@
         {% endfor %}
       </div>
     </form>
-
   </div>
-
 {% else %}
+  {% comment %} This must be inside main CART div {% endcomment %}
   <div class="cart__empty">
     <h1>Your cart is empty</h2>
     <a class="cart_continue-shopping" href="{{ routes.all_products_collection_url }}">Continue shopping</a>

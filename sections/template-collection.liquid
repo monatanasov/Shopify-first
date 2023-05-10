@@ -1,0 +1,15 @@
+{% paginate collection.products by 5 %}
+  {% for product in collection.products %}
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}">
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'cart__content-missing-img' }}
+    {% endif %}
+    <span>{{ product.vendor }}</span>
+    <a href="{{ product.url }}">{{ product.title }}</a>
+    <p>{{ product.price | money }}</p>
+  {% else %}
+    <p>There are no products inside of this collection!</p>
+  {% endfor %}
+
+{% endpaginate %}
