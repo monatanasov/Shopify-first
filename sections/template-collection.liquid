@@ -1,5 +1,5 @@
 <div class="collection__page">
-  {% paginate collection.products by 8 %}
+  {% paginate collection.products by 4 %}
     <h1 class="collection__page-title">{{ collection.title }}</h1>
     <div class="collection__page-grid">
       {% for product in collection.products %}
@@ -21,5 +21,6 @@
         <p>There are no products inside of this collection!</p>
       {% endfor %}
     </div>
+    {% render 'snippet-pagination', pagination: paginate %}
   {% endpaginate %}
 </div>
