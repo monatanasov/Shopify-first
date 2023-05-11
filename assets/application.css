@@ -362,7 +362,37 @@ body {
                                                                     /*-------------------
                                                                         FOOTER END
                                                                     -------------------*/
+                                                                      /*------------------
+                                                                        PAGINATION SNIPPET
+                                                                          NAV BUTTONS
+                                                                      ------------------- */
 
+.pagination__nav {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0rem;
+  gap: .25rem;
+}
+
+.pagination__nav-btns {
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  background-color: #ffffff;
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pagination__nav-btns {
+  text-decoration: none;
+  color: #222222;
+}
+
+.pagination__nav-btns:hover {
+  background-color: #63b151;
+  color: #ffffff;
+
+}
                                                                       /*-------------
                                                                           404 page
                                                                       --------------- */

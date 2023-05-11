@@ -1,15 +1,17 @@
 {% if pagination.pages > 0 %}
-  <nav role="navigation" class="TODO-flex-justify-center-my-8">
+  <nav role="navigation" class="pagination__nav">
+
     {% if pagination.previous %}
-      <a href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>
+      <a class="pagination__nav-btns" href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>
     {% endif %}
 
     {% for part in pagination.parts %}
-      <a href="{{ part.url }}">{{ part.title }}</a>
+      <a class="pagination__nav-btns" href="{{ part.url }}">{{ part.title }}</a>
     {% endfor %}
 
     {% if pagination.next %}
-      <a href="{{ pagination.next.url }}">{{ pagination.next.title }}</a>
+      <a class="pagination__nav-btns" href="{{ pagination.next.url }}">{{ pagination.next.title }}</a>
     {% endif %}
+
   </nav>
 {% endif %}
