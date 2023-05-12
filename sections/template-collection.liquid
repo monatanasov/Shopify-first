@@ -1,5 +1,5 @@
 <div class="collection__page">
-  {% paginate collection.products by 4 %}
+  {% paginate collection.products by section.settings.collection-products__number-per-page %}
     <h1 class="collection__page-title">{{ collection.title }}</h1>
     <div class="collection__page-grid">
       {% for product in collection.products %}
@@ -26,3 +26,18 @@
     {% render 'snippet-pagination', pagination: paginate %}
   {% endpaginate %}
 </div>
+
+
+{% schema %}
+  {
+    "name": "Template collection",
+    "settings": [
+      {
+        "type": "number",
+        "id": "collection-products__number-per-page",
+        "default": 4,
+        "label": "Number of products per page"
+      }
+    ]
+  }
+{% endschema %}
