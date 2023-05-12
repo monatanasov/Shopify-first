@@ -21,6 +21,8 @@
         <p>There are no products inside of this collection!</p>
       {% endfor %}
     </div>
+    {% comment %} PAGINATION is parameter which is used in the snippet file /snippet-pagination.liquid/ {% endcomment %}
+    {% comment %} PAGINATE is the value which are passing to PAGINATION parameter {% endcomment %}
     {% render 'snippet-pagination', pagination: paginate %}
   {% endpaginate %}
 </div>

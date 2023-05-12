@@ -391,7 +391,15 @@ body {
 .pagination__nav-btns:hover {
   background-color: #63b151;
   color: #ffffff;
+}
 
+.pagination__nav-btnclicked {
+  background-color: #4a8f3a;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1rem;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
 }
                                                                       /*-------------
                                                                           404 page

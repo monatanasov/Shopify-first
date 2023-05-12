@@ -1,12 +1,20 @@
-{% if pagination.pages > 0 %}
-  <nav role="navigation" class="pagination__nav">
+{% comment %} Spliting pagination code in this file to be able to REUSE it in other parts in the shopify theme {% endcomment %}
+{% comment %} check if there's more pages in Pagination TAG {% endcomment %}
+{% comment %} !!! using PAGINATION parameter instead of PAGINATE - PAGINATION.pages instead of PAGINATE.pages  !!! {% endcomment %}
 
-    {% if pagination.previous %}
+  {% if pagination.pages > 0 %}
+    <nav role="navigation" class="pagination__nav"> {% if pagination.previous %}
       <a class="pagination__nav-btns" href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>
     {% endif %}
 
+    {% comment %} is_link returns TRUE if the PART is link and FALSE if it is not {% endcomment %}
+    {% comment %} using span tag to make the page number not clickable and for additional css styling {% endcomment %}
     {% for part in pagination.parts %}
-      <a class="pagination__nav-btns" href="{{ part.url }}">{{ part.title }}</a>
+      {% if part.is_link %}
+        <a class="pagination__nav-btns" href="{{ part.url }}">{{ part.title }}</a>
+      {% else %}
+        <span class="pagination__nav-btnclicked">{{ part.title }}</span>
+      {% endif %}
     {% endfor %}
 
     {% if pagination.next %}
