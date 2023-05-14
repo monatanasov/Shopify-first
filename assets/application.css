@@ -464,19 +464,34 @@ body {
 }
 
 .template__article-author {
-
+  /* empty for now */
 }
 
 .template__article-published__date {
-
+  /* empty for now */
 }
 
-.template__article-featured__image,
+.template__article-featured-wrapper {
+  width: 100%;
+  height: 20rem;
+  margin: 1rem 0rem;
+}
+
+.template__article-featured__image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .template__article-placeholder__img {
   display: flex;
   justify-content: center;
-  margin: 1rem 0rem;
-  max-height: 20rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: lightskyblue;
 }
 
 .template__article-content {
