@@ -4,7 +4,7 @@
     {% for article in blog.articles %}
       <div class="template__blog-article">
         <div class="template__blog-article__title">
-          <a href="{{ article.url }}">{{ article.title }}</a>
+          <a href="{{ article.url }}">{{ article.title | truncatewords: 8 }}</a>
         </div>
         <div class="template__blog-image">
           {% if article.image %}
