@@ -432,7 +432,59 @@ body {
   background-color: #4a8f3a;
 }
 
+                                                                      /*------------------
+                                                                        Template Article
+                                                                              PAGE
+                                                                      ------------------- */
+.template__article {
+  margin: 2rem 12rem;
+}
 
+.template__article-news-title,
+.template__article-title,
+.template__article-author,
+.template__article-published__date {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.template__article-news-title a {
+  text-decoration: none;
+  color: gray;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.template__article-news-title a:hover {
+  color: darkgray;
+}
+
+.template__article-title {
+  font-size: 1.5rem;
+}
+
+.template__article-author {
+
+}
+
+.template__article-published__date {
+
+}
+
+.template__article-featured__image,
+.template__article-placeholder__img {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0rem;
+  max-height: 20rem;
+}
+
+.template__article-content {
+  padding: 0rem 10rem;
+  text-indent: 3rem;
+  text-align: justify;
+  font-size: 20px;
+}
                                                                       /*-------------
                                                                           CART page
                                                                       --------------- */

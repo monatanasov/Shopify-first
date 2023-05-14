@@ -3,6 +3,9 @@
         "template": {
             "type": "template-article",
             "blocks": {
+                "blog-title": {
+                    "type": "article_blog_title"
+                },
                 "title": {
                     "type": "article_title"
                 },
@@ -20,7 +23,7 @@
                 }
 
             },
-            "block_order": ["title","author","published-date","thumbnail","content"]
+            "block_order": ["blog-title","title","published-date","author","thumbnail","content"]
         }
     },
     "order": ["template"]

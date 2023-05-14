@@ -1,22 +1,44 @@
-{% for block in section.blocks %}
-  {% case block.type %}
-    {% when 'article_title' %}
-    <h1>{{ article.title }}</h1>
+<article>
+  <div class="template__article">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'article_blog_title' %}
+        <div class="template__article-news-title">
+          <a href="{{ blog.url }}">{{ blog.title }}</a>
+        </div>
+        {% when 'article_title' %}
+        <div class="template__article-title">
+          <h1>{{ article.title }}</h1>
+        </div>
+        {% when 'article_author' %}
+        <div class="template__article-author">
+          {% if section.settings.enable_author %}
+            <small>{{ article.author }}</small>
+          {% endif %}
+        </div>
+        {% when 'article_published_date' %}
+        <div class="template__article-published__date">
+          {% if section.settings.enable_published_date %}
+            <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'on_date' }}</time>
+          {% endif %}
+        </div>
+        {% when 'featured_image' %}
+        <div class="template__article-featured__image">
+          {% if article.image != blank %}
+            <img src="{{ article.image | img_url: 'large' }}" alt="{{ article.image.alt }}">
+          {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'template__article-placeholder__img' }}
+          {% endif %}
+        </div>
+        {% when 'article_content' %}
+        <div class="template__article-content">
+          <p>{{ article.content }}</p>
+        </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</article>
 
-    {% when 'article_author' %}
-    {% if section.settings.enable_author %}
-      <small>{{ article.author }}</small>
-    {% endif %}
-    {% when 'article_published_date' %}
-    {% if section.settings.enable_published_date %}
-      <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
-    {% endif %}
-    {% when 'featured_image' %}
-    <img src="{{ article.image | img_url: 'large' }}" alt="{{ article.image.alt }}">
-    {% when 'article_content' %}
-    <p>{{ article.content }}</p>
-  {% endcase %}
-{% endfor %}
 
 {% schema %}
   {
@@ -36,6 +58,11 @@
     ],
     "blocks": [
       {
+        "type": "article_blog_title",
+        "name": "Blog Title",
+        "limit": 1
+      },
+      {
         "type": "article_title",
         "name": "Title",
         "limit": 1
@@ -49,8 +76,7 @@
         "type": "article_published_date",
         "name": "Published Date",
         "limit": 1
-      },
-      {
+      }, {
         "type": "featured_image",
         "name": "Thumbnail",
         "limit": 1
