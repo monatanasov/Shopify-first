@@ -433,7 +433,7 @@ body {
 }
 
                                                                       /*------------------
-                                                                        Template Article
+                                                                        Template ARTICLE
                                                                               PAGE
                                                                       ------------------- */
 .template__article {
@@ -499,6 +499,14 @@ body {
   text-indent: 3rem;
   text-align: justify;
   font-size: 20px;
+}
+
+                                                                      /*------------------
+                                                                        Template BLOG
+                                                                              PAGE
+                                                                      ------------------- */
+.template__blog {
+  margin: 2rem 12rem;
 }
                                                                       /*-------------
                                                                           CART page
