@@ -125,13 +125,18 @@ body {
 
 .announcement-bar .annountcement-bar__subscribe-wrapper ul li {
     background-color: #63b151;
-    padding: .25rem 1rem;
     font-weight: bold;
+    height: 2rem;
+
 }
 
 .announcement-bar .annountcement-bar__subscribe-wrapper ul li a {
     color: #ffffff;
     text-decoration: none;
+    padding: .25rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .announcement-bar .annountcement-bar__subscribe-icon {
