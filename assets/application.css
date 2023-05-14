@@ -503,10 +503,84 @@ body {
 
                                                                       /*------------------
                                                                         Template BLOG
-                                                                              PAGE
+                                                                             PAGE
                                                                       ------------------- */
 .template__blog {
   margin: 2rem 12rem;
+}
+
+.template__blog-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr) ) ;
+  gap: 1rem;
+
+}
+
+.template__blog-blog__title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
+
+.template__blog-article__title {
+  margin-bottom: .5rem;
+  text-align: center;
+}
+
+.template__blog-article__title a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+
+.template__blog-article {
+  border: 1px solid lightgray;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  border-radius: 15px;
+  height: 30rem;
+  padding: 1rem;
+}
+
+.template__blog-image img {
+  width: 100%;
+  height: 13rem;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.template__blog-placeholder__img {
+  border-radius: 15px;
+  width: 100%;
+  height: 13rem;
+  object-fit: cover;
+  background-color: lightskyblue;
+}
+
+.template__blog-author__date {
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+.template__blog-content {
+  margin-top: .5rem;
+  text-align: justify;
+}
+
+.template__blog-readmore a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: .5rem;
+  font-weight: bolder;
+  margin-top: .5rem;
+  background-color: #4a8f3a;
+  display: inline-flex;
+}
+
+.template__blog-readmore a:hover {
+  background-color: #63b151;
 }
                                                                       /*-------------
                                                                           CART page
@@ -611,6 +685,7 @@ body {
   font-size: 2.5rem;
   line-height: 1.5;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .collection__page-grid {
