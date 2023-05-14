@@ -1,17 +1,28 @@
 <div class="header">
   {% comment %} Announcement bar {% endcomment %}
+  <div class="announcement-bar__hidden">
+    <h2>Newsletter</h2>
+    <p>Sign up today and receive our lowest price deals and coupon codes</p>
+    <form action="#">
+      <input
+        type="text"
+        placeholder="Your email..."
+        name="subscribe">
+      <button>
+        Subscribe
+      </button>
+    </form>
+  </div>
   <div class="announcement-bar">
     <div class="announcement-bar__content">
       <p>Orders placed by 4PM EST ship out same day.</p>
     </div>
 
-    <div class="annountcement-bar__subscribe-wrapper">
-      <ul role="list" class="all-btns">
-        <li>
-          <a href="#">
-            <i class="fas fa-envelope annountcement-bar__subscribe-icon"></i>Subscribe & Save</a>
-        </li>
-      </ul>
+    <div class="annountcement-bar__subscribe-btn">
+      <button>
+        <i class="fas fa-envelope annountcement-bar__subscribe-icon"></i>
+        Subscribe & Save
+      </button>
     </div>
   </div>
   {% comment %} Header {% endcomment %}
