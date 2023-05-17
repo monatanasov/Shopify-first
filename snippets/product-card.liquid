@@ -1,0 +1,16 @@
+{% comment %} This code was moved from template-collection without changing class names.
+With tailwindcss/framework/ this problem won't occur {% endcomment %}
+<div class="collection__page-product">
+  <div class="collection__page-image">
+    {% if product_card.featured_image %}
+      <img src="{{ product_card.featured_image | img_url: 'medium' }}" alt="{{ product_card.featured_image.alt }}">
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag }}
+    {% endif %}
+  </div>
+  <div class="collection__page-prodcont">
+    <span>{{ product_card.vendor }}</span>
+    <a href="{{ product_card.url }}">{{ product_card.title }}</a>
+    <p>{{ product_card.price | money }}</p>
+  </div>
+</div>

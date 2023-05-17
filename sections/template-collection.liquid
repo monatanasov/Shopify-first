@@ -3,20 +3,7 @@
     <h1 class="collection__page-title">{{ collection.title }}</h1>
     <div class="collection__page-grid">
       {% for product in collection.products %}
-        <div class="collection__page-product">
-          <div class="collection__page-image">
-            {% if product.featured_image %}
-              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}">
-            {% else %}
-              {{ 'product-1' | placeholder_svg_tag }}
-            {% endif %}
-          </div>
-          <div class="collection__page-prodcont">
-            <span>{{ product.vendor }}</span>
-            <a href="{{ product.url }}">{{ product.title }}</a>
-            <p>{{ product.price | money }}</p>
-          </div>
-        </div>
+        {% render 'product-card', product_card: product %}
       {% else %}
         <p>There are no products inside of this collection!</p>
       {% endfor %}
