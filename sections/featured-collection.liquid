@@ -20,6 +20,8 @@ Referencing comment to index.json, cause JSON doesn't support comments
   </div>
 </div>
 
+{% comment %} PRESETS allows adding many collections inside 1 page {% endcomment %}
+
 {% schema %}
   {
     "name": "Featured Collection",
@@ -42,7 +44,7 @@ Referencing comment to index.json, cause JSON doesn't support comments
         "label": "Number of products to show"
       }
     ],
-    "presets": [ //allows us
+    "presets": [
       {
         "name": "Featred Collection"
       }
