@@ -1,4 +1,5 @@
 <div class="collection__page">
+  <a href="{{ routes.collections_url }}" class="collection__page-back-btn">Go back to collections</a>
   {% paginate collection.products by section.settings.collection-products__number-per-page %}
     <h1 class="collection__page-title">{{ collection.title }}</h1>
     <div class="collection__page-grid">
