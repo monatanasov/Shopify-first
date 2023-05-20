@@ -862,9 +862,33 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 65%;
+  width: 53%;
   margin: 1rem auto;
   font-size: 1.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 0.5px solid lightgrey;
+}
+
+.contact-form__error {
+  border: 0px solid lightgrey;
+  margin-bottom: 1rem;
+}
+
+.contact-form__message-success,
+.contact-form__message-failed {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form__icon-success,
+.contact-form__icon-failed {
+  width: 2rem;
+  height: 2rem;
 }
 
 .contact-form__name-email {

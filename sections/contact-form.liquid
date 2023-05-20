@@ -2,8 +2,29 @@
 contact[name] is optional inputs in shopify forms
 {% endcomment %}
 <div class="contact-form">
-  {% form 'contact' %}
 
+  <div class="contact-form__error">
+    {% form 'contact' %}
+      {% if form.errors %}
+        <div class="contact-form__message-failed">
+          <div class="contact-form__icon-failed">
+            {% render 'icon-failed' %}
+          </div>
+          <p>Oh, no! Your message is not sent!</p>
+          {% for error in form.errors %}
+            {{ form.errors.messages[error] }}
+          {% endfor %}
+        </div>
+      {% elsif form.posted_successfully? %}
+        <div class="contact-form__message-success">
+          <div class="contact-form__icon-success">
+            {% render 'icon-success' %}
+          </div>
+          <p>Your message is sent successfully</p>
+        </div>
+      {% endif %}
+
+    </div>
     <div class="contact-form__name-email">
       <div class="contact-form__name">
         <label for="contact_name">Name</label>
