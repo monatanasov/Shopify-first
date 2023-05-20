@@ -2,7 +2,7 @@
 contact[name] is optional inputs in shopify forms
 {% endcomment %}
 <div class="contact-form">
-
+  <h2>{{ section.settings.contact_form_title }}</h2>
   <div class="contact-form__error">
     {% form 'contact' %}
       {% if form.errors %}
@@ -57,6 +57,13 @@ contact[name] is optional inputs in shopify forms
 {% schema %}
   {
     "name": "Contact Form",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_form_title",
+        "label": "Title"
+      }
+    ],
     "presets": [
       {
         "name": "Contact Form"

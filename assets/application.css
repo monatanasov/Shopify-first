@@ -867,6 +867,11 @@ body {
   font-size: 1.25rem;
 }
 
+.contact-form h2 {
+  text-align: center;
+  padding-top: 2rem;
+}
+
 .contact-form input,
 .contact-form textarea {
   border: 0.5px solid lightgrey;
@@ -909,7 +914,7 @@ body {
 
 .contact-form__submit-btn {
   border: none;
-  margin-top: 1rem;
+  margin: 1rem 0rem;
   height: 3rem;
   background-color: #4a8f3a;
   color: #ffffff;
