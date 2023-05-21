@@ -925,3 +925,17 @@ body {
 .contact-form__submit-btn:hover {
   background-color: #63b151;
 }
+
+                                                                      /*----------------------------
+                                                                            template-PRODUCT
+                                                                      ---------------------------- */
+
+.template-product {
+  margin: 2rem 12rem;
+}
+
+.template-product__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2;
+}

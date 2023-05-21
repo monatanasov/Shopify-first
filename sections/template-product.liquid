@@ -1,0 +1,12 @@
+<div class="template-product">
+  <div class="template-product__grid">
+    <div class="template-product__product-medias">
+      {% for media in product.media %}
+        <div>
+          {% render 'product-media', media: media %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="template-product__information"></div>
+  </div>
+</div>
