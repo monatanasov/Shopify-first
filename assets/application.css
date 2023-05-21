@@ -654,6 +654,27 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.cart__content-prod-description {
+  width: 80%;
+  text-align: justify;
+}
+
+.cart__content-remove-product-btn {
+  padding: .5rem;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #63b151;
+}
+
+.cart__content-remove-product-btn:hover {
+  background-color: #4a8f3a;
+}
+
+.cart__content-quantity-field {
+  width: 80%;
 }
 
 .cart__content-footer {

@@ -32,11 +32,12 @@
                 {% comment %} Display other product info after the image {% endcomment %}
                 {% comment %} forloop returns the NUMBER of the current iteraction  {% endcomment %}
                 <td class="cart__content-td">
-                  <a href="{{ item.url }}">{{ item.title | truncatewords: 5 }}</a>
-                  <span>{{ item.product.description }}</span>
-                  <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">remove</a>
+                  <a href="{{ item.url }}">{{ item.title | truncatewords: 10 }}</a>
+                  <div class="cart__content-prod-description">{{ item.product.description | truncatewords: 93 }}</div>
+                  <a class="cart__content-remove-product-btn" href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">remove</a>
                 </td>
                 <td><input
+                    class="cart__content-quantity-field"
                     type="number"
                     name="updates[]"
                     value="{{ item.quantity }}"
