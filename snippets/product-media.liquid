@@ -1,14 +1,23 @@
 {% case media.media_type %}
   {% when 'image' %}
-  <img src="{{ media | img_url: 'large' }}" alt="{{ media.preview_image.alt }}">
-
+  <div class="product-media__border">
+    <img src="{{ media | img_url: 'large' }}" alt="{{ media.preview_image.alt }}">
+  </div>
   {% when 'external_video' %}
-  {{ media | external_video_tag }}
+  <div class="product-media__border">
+    {{ media | external_video_tag }}
+  </div>
   {% when 'video' %}
-  {{ media | video_tag: controls: true }}
-
+  <div class="product-media__border">
+    {{ media | video_tag: controls: true }}
+  </div>
   {% when 'model' %}
-  {{ media | model_viewer_tag }}
+  <div class="product-media__border">
+    {{ media | model_viewer_tag }}
+  </div>
+  {% comment %} ELSE here doesnt work. Why? {% endcomment %}
 {% else %}
-  {{ media | media_tag }}
+  <div class="product-media__border">
+    {{ media | media_tag }}
+  </div>
 {% endcase %}
