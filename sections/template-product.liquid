@@ -15,62 +15,109 @@
           name="id"
           value="{{ product.selected_or_first_available_variant.id }}">
 
-        <span class="template-product__information-vendor">{{ product.vendor }}</span>
-
-        <h1 class="template-product__information-title">{{ product.title }}</h1>
-
-        <div class="template-product__information-pricing">
-          {% assign product_price = product.selected_or_first_available_variant %}
-          <span class="template-product__information-compare-price">{{ product_price.compare_at_price | money }}</span>
-          <span class="template-product__information-price">{{ product_price.price | money }}</span>
-          {% if product_price.price < product_price.compare_at_price %}
-            <span class="template-product__information-onsale">Sale</span>
-          {% endif %}
-        </div>
-
-        {% unless product.has_only_default_variant %}
-          <div data-url="{{ product.url}}" data-section="{{ section.id }}">
-            {% for option in product.options_with_values %}
-              <div>
-                <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
-                <select
-                  name="options[{{ option.name | escape }}]"
-                  id="Option-{{ section.id }}-{{ forloop.c }}"
-                  class="w-full border py-3 px-3">
-                  {% for value in option.values %}
-                    <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
-                      {{ value }}
-                    </option>
-                  {% endfor %}
-                </select>
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'vendor' %}
+            <span class="template-product__information-vendor">{{ product.vendor }}</span>
+            {% when 'title' %}
+            <h1 class="template-product__information-title">{{ product.title }}</h1>
+            {% when 'price' %}
+            <div class="template-product__information-pricing">
+              {% assign product_price = product.selected_or_first_available_variant %}
+              <span class="template-product__information-compare-price">{{ product_price.compare_at_price | money }}</span>
+              <span class="template-product__information-price">{{ product_price.price | money }}</span>
+              {% if product_price.price < product_price.compare_at_price %}
+                <span class="template-product__information-onsale">Sale</span>
+              {% endif %}
+            </div>
+            {% when 'variant_selector' %}
+            {% unless product.has_only_default_variant %}
+              <div data-url="{{ product.url}}" data-section="{{ section.id }}">
+                {% for option in product.options_with_values %}
+                  <div>
+                    <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+                    <select
+                      name="options[{{ option.name | escape }}]"
+                      id="Option-{{ section.id }}-{{ forloop.c }}"
+                      class="w-full border py-3 px-3">
+                      {% for value in option.values %}
+                        <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
+                          {{ value }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                {% endfor %}
               </div>
-            {% endfor %}
-          </div>
-        {% endunless %}
+            {% endunless %}
+            {% when 'quantity' %}
+            <label for="Quantity-{{ section.id }}">Quantity</label>
+            <input
+              type="number"
+              name="quantity"
+              id="Quantity-{{ section.id }}"
+              value="1"
+              min="1"
+              class="template-product__information-prod-quantity">
+            {% when 'description' %}
+            <span class="template-product__information-prod-description">{{ product.description }}</span>
+            {% when 'checkout_buttons' %}
+            <button
+              type="submit"
+              name="add"
+              {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+              {% if product.selected_or_first_available_variant.available == false %}
+                Sold out
+              {% else %}
+                Add to cart
+              {% endif %}
+            </button>
+          {% endcase %}
+        {% endfor %}
 
-        <label for="Quantity-{{ section.id }}">Quantity</label>
-        <input
-          type="number"
-          name="quantity"
-          id="Quantity-{{ section.id }}"
-          value="1"
-          min="1"
-          class="template-product__information-prod-quantity">
-
-        <span class="template-product__information-prod-description">{{ product.description }}</span>
 
 
-        <button
-          type="submit"
-          name="add"
-          {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
-          {% if product.selected_or_first_available_variant.available == false %}
-            Sold out
-          {% else %}
-            Add to cart
-          {% endif %}
-        </button>
       {% endform %}
     </div>
   </div>
 </div>
+
+{% schema %}
+  {
+    "name": "Product",
+    "blocks": [
+      {
+        "type": "vendor",
+        "name": "Vendor",
+        "limit": 1
+      },
+      {
+        "type": "title",
+        "name": "Title",
+        "limit": 1
+      },
+      {
+        "type": "price",
+        "name": "Price",
+        "limit": 1
+      },
+      {
+        "type": "variant_selector",
+        "name": "Variant Selector",
+        "limit": 1
+      }, {
+        "type": "quantity",
+        "name": "Quantity",
+        "limit": 1
+      }, {
+        "type": "description",
+        "name": "Description",
+        "limit": 1
+      }, {
+        "type": "checkout_buttons",
+        "name": "Checkout Buttons",
+        "limit": 1
+      }
+    ]
+  }
+{% endschema %}
