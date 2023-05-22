@@ -1,0 +1,21 @@
+<div class="template-search">
+  <h1 class="template-search__title">Search results</h1>
+  <p>{{ search.results.size }} results for the search term {{ search.terms | escape }}
+    {% paginate search.results by 5 %}
+      {% if search.results.size > 0 %}
+      </p>
+      {% for item in search.results %}
+        {% case item.object_type %}
+          {% when 'product' %}
+          {% render 'product-card', product_card: item %}
+      {% else %}
+
+        {% endcase %}
+      {% endfor %}
+    {% else %}
+      <p>No results found for the search term:
+        <span>{{ search.terms | escape }}</span>. Try to use a different keyword</p>
+    {% endif %}
+    {% render 'snippet-pagination', pagination: paginate %}
+  {% endpaginate %}
+</div>

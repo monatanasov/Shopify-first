@@ -1017,3 +1017,7 @@ body {
   text-align: justify;
   margin-bottom: 1rem;
 }
+
+.template-search {
+  margin: 2rem 12rem;
+}
