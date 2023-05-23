@@ -13,8 +13,10 @@
         {% endfor %}
       </div>
     {% else %}
-      <p>No results found for the search term:
-        <span>{{ search.terms | escape }}</span>. Try to use a different keyword</p>
+      <div class="template-search_noresults">
+        <p>No results found for the search term:
+          <span>"{{ search.terms | escape }}"</span>. Try to use a different keyword.</p>
+      </div>
     {% endif %}
     {% render 'snippet-pagination', pagination: paginate %}
   {% endpaginate %}

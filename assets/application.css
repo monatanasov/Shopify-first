@@ -1050,3 +1050,12 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
+
+.template-search_noresults {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.template-search_noresults span {
+  font-weight: bolder;
+}
