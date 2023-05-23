@@ -6,7 +6,7 @@
     </div>
     <div class="cart__content">
       <form action="{{ routes.cart_url }}"method="POST"novalidate>
-        {% comment %} Table for displaying items inside cart. Everything is wrapped in FORM tag. {% endcomment %}
+        <!-- Table for displaying items inside cart. Everything is wrapped in FORM tag. -->
         <table class="cart__content-table">
           <thead>
             <th class="cart__content-th">Product</th>
@@ -17,7 +17,7 @@
             {% for item in cart.items %}
               <tr class="cart__content-tr">
                 <td class="cart__content-td">
-                  {% comment %} Display product image if there's one, ELSE display Placeholder img {% endcomment %}
+                  <!-- Display product image if there's one, ELSE display Placeholder img -->
                   <a href="{{ item.url }}">
                     {% if item.image %}
                       <img
@@ -29,8 +29,8 @@
                     {% endif %}
                   </a>
                 </td>
-                {% comment %} Display other product info after the image {% endcomment %}
-                {% comment %} forloop returns the NUMBER of the current iteraction  {% endcomment %}
+                <!-- Display other product info after the image -->
+                <!-- forloop returns the NUMBER of the current iteraction  -->
                 <td class="cart__content-td">
                   <a href="{{ item.url }}">{{ item.title | truncatewords: 10 }}</a>
                   <div class="cart__content-prod-description">{{ item.product.description | truncatewords: 93 }}</div>
@@ -50,7 +50,7 @@
           </tbody>
         </div>
       </table>
-      {% comment %} REArrange buttons and subtotal in footer using BLOCKS {% endcomment %}
+      <!-- REArrange buttons and subtotal in footer using BLOCKS -->
       <div class="cart__content-footer">
         {% for block in section.blocks %}
           {% case block.type %}
@@ -66,7 +66,7 @@
     </form>
   </div>
 {% else %}
-  {% comment %} This must be inside main CART div {% endcomment %}
+  <!-- This must be inside main CART div -->
   <div class="cart__empty">
     <h1>Your cart is empty</h2>
     <a class="cart_continue-shopping" href="{{ routes.all_products_collection_url }}">Continue shopping</a>

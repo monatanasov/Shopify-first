@@ -1,5 +1,5 @@
 <div class="header">
-  {% comment %} Announcement bar {% endcomment %}
+  <!-- Announcement bar -->
   <div class="announcement-bar__hidden">
     <h2>Newsletter</h2>
     <p>Sign up today and receive our lowest price deals and coupon codes</p>
@@ -25,12 +25,13 @@
       </button>
     </div>
   </div>
-  {% comment %} Header {% endcomment %}
+  <!-- Header -->
   <div class="header__content">
     <div class="header__logo">
       <a href="#">{{ shop.name }}</a>
     </div>
     <div class="header__search-container">
+      <!-- Search bar -->
       <form action="{{ routes.search_url }}" method="GET">
         <input
           type="search"
@@ -41,7 +42,7 @@
         </button>
       </form>
     </div>
-    {% comment %} Check customers accounts settings and show/hide login&register buttons {% endcomment %}
+    <!-- Check customers accounts settings and show/hide login&register buttons -->
     <div class="header_all-btns">
       {% if shop.customer_accounts_enabled %}
         <div class="header__login-register">
@@ -55,7 +56,7 @@
       </div>
     </div>
   </div>
-  {% comment %} show menus and nested menus {% endcomment %}
+  <!-- show menus and nested menus -->
   <div x-data="{ open: false }" class="header__navigation">
     <nav>
       <ul role="list">

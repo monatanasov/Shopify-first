@@ -1,15 +1,16 @@
-{% comment %}
+<!--
 Referencing comment to index.json, cause JSON doesn't support comments
 "featured_collection": "all" is the default collection in SHOPIFY STORE. This allows to render all products in shopify store.
-{% endcomment %}
+-->
 
 <div class="featured-collection__wrapper">
   <h1>{{ section.settings.title }}</h1>
   <div class="featured-collection__grid">
-    {% comment %} LIMIT parameter inside FOR -
+    <!--
+    LIMIT parameter inside FOR -
     forces the for tag to stop iterating once the index
     reach the value setted in number_of_products_to_show
-    {% endcomment %}
+    -->
     {% for product in section.settings.featured_collection.products limit: section.settings.number_of_products_to_show %}
       {% render 'product-card', product_card: product %}
     {% else %}
@@ -20,7 +21,7 @@ Referencing comment to index.json, cause JSON doesn't support comments
   </div>
 </div>
 
-{% comment %} PRESETS allows adding many collections inside 1 page {% endcomment %}
+<!-- PRESETS allows adding many collections inside 1 page -->
 
 {% schema %}
   {
