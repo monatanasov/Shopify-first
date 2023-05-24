@@ -1059,3 +1059,47 @@ body {
 .template-search_noresults span {
   font-weight: bolder;
 }
+
+                                                                     /*----------------------------
+                                                                            template-SEARCH
+                                                                      ---------------------------- */
+
+.customer-login {
+  margin: 2rem 12rem;
+}
+
+.customer-login__flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customer-login__title {
+  margin-bottom: 2rem;
+}
+
+.customer-login__form {
+  font-size: 1.25rem;
+  width: 30%;
+}
+
+.customer-login__form input {
+  display: block;
+  width: 100%;
+  border: 0.5px solid lightgrey;
+  line-height: 2.5rem;
+}
+
+.customer-login__submit-btn {
+  width: 100%;
+  margin-top: .5rem;
+  background-color: #4a8f3a;
+  color: #ffffff;
+  border: none;
+  line-height: 2.5rem;
+}
+
+.customer-login__submit-btn:hover {
+  background-color: #63b151;
+}

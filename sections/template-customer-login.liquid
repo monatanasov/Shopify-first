@@ -1,26 +1,31 @@
 <div class="customer-login">
-  <h1 class="customer-login__title">
-    Sign in to your account
-  </h1>
-  {% form 'customer_login' %}
-    <label for="email_address">Email address</label>
-    <input
-      type="email"
-      name="customer[email]"
-      id="email_address"
-      autocomplete="email"
-      placeholder="Email adress">
+  <div class="customer-login__flex">
+    <h1 class="customer-login__title">
+      Sign in to your account
+    </h1>
+    <div class="customer-login__form">
+      {% form 'customer_login' %}
+        <label for="email_address">Email address</label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="email_address"
+          autocomplete="email"
+          placeholder="Email adress">
 
-    {% if form.password_needed %}
-      <label for="password">Password</label>
-      <input
-        type="password"
-        name="customer[password]"
-        id="password"
-        autocomplete="current-password"
-        placeholder="Password">
-    {% endif %}
+        {% if form.password_needed %}
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="customer[password]"
+            id="password"
+            autocomplete="current-password"
+            placeholder="Password">
+        {% endif %}
 
-    <button type="submit">Sign in</button>
-  {% endform %}
+        <button class="customer-login__submit-btn" type="submit">Sign in</button>
+      {% endform %}
+    </div>
+  </div>
+
 </div>
