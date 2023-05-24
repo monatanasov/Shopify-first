@@ -1,21 +1,24 @@
 <div class="header" x-data=" { announcementBar: false } ">
-  <!-- Announcement bar -->
+  <!-- Announcement bar NEWSLETTER -->
   <div x-show="announcementBar" class="announcement-bar__hidden">
     <div class="announcement-bar__icon-close" x-on:click="announcementBar = false">
       {% render 'icon-close' %}
     </div>
-    <h2>Newsletter</h2>
-    <p>Sign up today and receive our lowest price deals and coupon codes</p>
-    <form action="#">
-      <input
-        type="text"
-        placeholder="Your email..."
-        name="subscribe">
-      <button>
-        Subscribe
-      </button>
-    </form>
+    <div class="announcement-bar__hidden-wrapper">
+      <h2>Newsletter</h2>
+      <p>Sign up today and receive our lowest price deals and coupon codes</p>
+      <form action="#">
+        <input
+          type="text"
+          placeholder="Your email..."
+          name="subscribe">
+        <button class="announcement-bar__hidden-subs-btn">
+          Subscribe
+        </button>
+      </form>
+    </div>
   </div>
+  <!-- Announcement bar -->
   <div class="announcement-bar">
     <div class="announcement-bar__content">
       <p>Orders placed by 4PM EST ship out same day.</p>
