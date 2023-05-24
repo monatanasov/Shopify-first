@@ -1,6 +1,9 @@
-<div class="header">
+<div class="header" x-data=" { announcementBar: false } ">
   <!-- Announcement bar -->
-  <div class="announcement-bar__hidden">
+  <div x-show="announcementBar" class="announcement-bar__hidden">
+    <div class="announcement-bar__icon-close" x-on:click="announcementBar = false">
+      {% render 'icon-close' %}
+    </div>
     <h2>Newsletter</h2>
     <p>Sign up today and receive our lowest price deals and coupon codes</p>
     <form action="#">
@@ -19,7 +22,7 @@
     </div>
 
     <div class="annountcement-bar__subscribe-btn">
-      <button>
+      <button x-on:click="announcementBar = true">
         <i class="fas fa-envelope annountcement-bar__subscribe-icon"></i>
         Subscribe & Save
       </button>

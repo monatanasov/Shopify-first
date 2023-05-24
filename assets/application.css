@@ -103,12 +103,21 @@ body {
 ----------------------------*/
 
 .announcement-bar__hidden {
+  position: relative;
   height: 13rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  display: none;
+}
+
+.announcement-bar__icon-close {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
 }
 
 /*--------------------------
