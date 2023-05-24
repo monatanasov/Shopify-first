@@ -28,10 +28,8 @@
                       {{ 'product-1' | placeholder_svg_tag: 'cart__content-missing-img' }}
                     {% endif %}
                   </a>
-                </td>
-                <!-- Display other product info after the image -->
-                <!-- forloop returns the NUMBER of the current iteraction  -->
-                <td class="cart__content-td">
+                  <!-- Display other product info after the image -->
+                  <!-- forloop returns the NUMBER of the current iteraction  -->
                   <a href="{{ item.url }}">{{ item.title | truncatewords: 10 }}</a>
                   <div class="cart__content-prod-description">{{ item.product.description | truncatewords: 93 }}</div>
                   <a class="cart__content-remove-product-btn" href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">remove</a>
