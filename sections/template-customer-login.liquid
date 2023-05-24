@@ -1,6 +1,6 @@
-<div class="customer-login">
+<div class="customer-login" x-data=" { loginForm: true, pwRecoverForm: false } ">
   <!-- Login form DIV -->
-  <div class="customer-login__flex">
+  <div x-show="loginForm" class="customer-login__flex">
     <h1 class="customer-login__title">
       Sign in to your account
     </h1>
@@ -33,7 +33,10 @@
             placeholder="Password">
         {% endif %}
 
-        <a class="customer-login__forgotten-password" href="#">Forgot your password?</a>
+        <a
+          x-on:click="loginForm = false, pwRecoverForm = true"
+          class="customer-login__forgotten-password"
+          href="#">Forgot your password?</a>
 
         <button class="customer-login__submit-btn" type="submit">Sign in</button>
       {% endform %}
@@ -42,7 +45,7 @@
 
   <!-- ToDo - forgotten password DIV -->
   <!-- learn JavaScript first :D -->
-  <div class="customer-login__recover-pass-flex">
+  <div x-show="pwRecoverForm" class="customer-login__recover-pass-flex">
     <h1 class="customer-login__title">
       Recover your password
     </h1>
@@ -58,7 +61,10 @@
           autocomplete="email"
           placeholder="Email address">
 
-        <a class="customer-login__forgotten-password" href="#">Back to login page</a>
+        <a
+          x-on:click="loginForm = true, pwRecoverForm = false"
+          class="customer-login__back-to-login"
+          href="#">Back to login page</a>
 
         <button class="customer-login__submit-btn" type="submit">Recover</button>
       {% endform %}
