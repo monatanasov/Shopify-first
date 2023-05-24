@@ -1,17 +1,27 @@
 <div class="customer-login">
+  <!-- Login form DIV -->
   <div class="customer-login__flex">
     <h1 class="customer-login__title">
       Sign in to your account
     </h1>
+
     <div class="customer-login__form">
       {% form 'customer_login' %}
+        {% if form.errors %}
+          <div class="customer-login__form-errors" role="alert">
+            <strong>Error!</strong>
+            <p>
+              {{ form.errors | default_errors }}
+            </p>
+          </div>
+        {% endif %}
         <label for="email_address">Email address</label>
         <input
           type="email"
           name="customer[email]"
           id="email_address"
           autocomplete="email"
-          placeholder="Email adress">
+          placeholder="Email address">
 
         {% if form.password_needed %}
           <label for="password">Password</label>
@@ -23,7 +33,34 @@
             placeholder="Password">
         {% endif %}
 
+        <a class="customer-login__forgotten-password" href="#">Forgot your password?</a>
+
         <button class="customer-login__submit-btn" type="submit">Sign in</button>
+      {% endform %}
+    </div>
+  </div>
+
+  <!-- ToDo - forgotten password DIV -->
+  <!-- learn JavaScript first :D -->
+  <div class="customer-login__recover-pass-flex">
+    <h1 class="customer-login__title">
+      Recover your password
+    </h1>
+
+    <div class="customer-login__recover-form">
+      {% form 'customer_login' %}
+
+        <label for="recover_email">Email address</label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="recover_email"
+          autocomplete="email"
+          placeholder="Email address">
+
+        <a class="customer-login__forgotten-password" href="#">Back to login page</a>
+
+        <button class="customer-login__submit-btn" type="submit">Recover</button>
       {% endform %}
     </div>
   </div>

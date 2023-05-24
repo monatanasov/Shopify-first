@@ -1061,14 +1061,15 @@ body {
 }
 
                                                                      /*----------------------------
-                                                                            template-SEARCH
+                                                                            CUSTOMER LOGIN
                                                                       ---------------------------- */
 
 .customer-login {
   margin: 2rem 12rem;
 }
 
-.customer-login__flex {
+.customer-login__flex,
+.customer-login__recover-pass-flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1079,16 +1080,35 @@ body {
   margin-bottom: 2rem;
 }
 
-.customer-login__form {
+.customer-login__form-errors {
+  background-color: rgb(254 226 226);
+  padding: 1rem;
+  border: 1px solid rgb(248 113 113);
+}
+
+.customer-login__form-errors .errors ul {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.customer-login__form,
+.customer-login__recover-form {
   font-size: 1.25rem;
   width: 30%;
 }
 
-.customer-login__form input {
+.customer-login__form input,
+.customer-login__recover-form input {
   display: block;
   width: 100%;
   border: 0.5px solid lightgrey;
   line-height: 2.5rem;
+}
+
+.customer-login__forgotten-password {
+  font-size: 1rem;
 }
 
 .customer-login__submit-btn {
