@@ -1214,3 +1214,39 @@ body {
 .customer-register__submit-btn:hover {
   background-color: #63b151;
 }
+
+                                                                    /*----------------------------
+                                                                            CUSTOMER PASSWORD
+                                                                                  RESET
+                                                                      ---------------------------- */
+
+
+.customer-password {
+  margin: 2rem 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customer-password__reset-form {
+  width: 30%;
+}
+
+.customer-password__reset-form input {
+  display: block;
+  width: 100%;
+}
+
+.customer-password__submit-btn {
+  width: 100%;
+  margin-top: .5rem;
+  background-color: #4a8f3a;
+  color: #ffffff;
+  border: none;
+  line-height: 2.5rem;
+}
+
+.customer-password__submit-btn:hover {
+  background-color: #63b151;
+}
