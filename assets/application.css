@@ -1169,6 +1169,39 @@ body {
 }
 
                                                                      /*----------------------------
+                                                                              GUEST LOGIN
+                                                                      ---------------------------- */
+
+.customer-login__hr {
+  width: 50%;
+  margin-top: 2rem;
+}
+
+.customer-login__guest {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customer-login__guest-form {
+  width: 30%;
+}
+
+.customer-login__guest-submit-btn {
+  width: 100%;
+  margin-top: .5rem;
+  background-color: #4a8f3a;
+  color: #ffffff;
+  border: none;
+  line-height: 2.5rem;
+}
+
+.customer-login__guest-submit-btn:hover {
+  background-color: #63b151;
+}
+
+                                                                     /*----------------------------
                                                                             CUSTOMER REGISTER
                                                                       ---------------------------- */
 

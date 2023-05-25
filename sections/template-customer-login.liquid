@@ -43,8 +43,25 @@
     </div>
   </div>
 
-  <!-- ToDo - forgotten password DIV -->
-  <!-- learn JavaScript first :D -->
+
+  <!-- Guest login -->
+
+  {% if shop.checkout.guest_login %}
+    <hr class="customer-login__hr">
+    <div class="customer-login__guest">
+      <div class="customer-login__guest-title">
+        <h1>Continue as a guest</h1>
+      </div>
+      <div class="customer-login__guest-form">
+        {% form 'guest_login' %}
+          <button class="customer-login__guest-submit-btn" type="submit">Continue</button>
+        {% endform %}
+      </div>
+    </div>
+  {% endif %}
+
+
+  <!-- forgotten password DIV -->
   <div x-show="pwRecoverForm" class="customer-login__recover-pass-flex">
     <h1 class="customer-login__title">
       Recover your password
@@ -72,5 +89,6 @@
       {% endform %}
     </div>
   </div>
+
 
 </div>
