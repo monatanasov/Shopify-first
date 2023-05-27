@@ -1296,6 +1296,7 @@ body {
 
 .customer-account__title {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .customer-account__orders-title {
@@ -1318,7 +1319,6 @@ body {
   gap: 1rem; */
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
 }
 
 .customer-account__every-order {
