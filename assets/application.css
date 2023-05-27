@@ -1348,10 +1348,18 @@ body {
   align-items: center;
 }
 
-.customer-account__every-order-content__right-status {
+.customer-account__fulfillment-unfulfilled {
   background-color: #222222;
   color: #ffffff;
   border: 1px solid #222222;
+  border-radius: 6px;
+  padding: .10rem .5rem;
+}
+
+.customer-account__fulfillment-fulfilled {
+  background-color: #4a8f3a;
+  color: #ffffff;
+  border: 1px solid #4a8f3a;
   border-radius: 6px;
   padding: .10rem .5rem;
 }

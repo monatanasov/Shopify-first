@@ -34,7 +34,21 @@
                       <p>{{ order.financial_status }}</p>
                     </div>
                     <div class="customer-account__every-order-content__right">
-                      <p class="customer-account__every-order-content__right-status">{{ order.fulfillment_status_label }}</p>
+
+                      {% assign fulfilledStatusLabel = order.fulfillment_status_label %}
+                      <!-- if order is UNFULFILLED -->
+                      {% if fulfilledStatusLabel == "Unfulfilled" %}
+                        <div class="customer-account__fulfillment-unfulfilled">
+                          <p>{{ order.fulfillment_status_label }}</p>
+                        </div>
+                      {% endif %}
+
+                      <!-- if order is FULFILLED -->
+                      {% if fulfilledStatusLabel == "Fulfilled" %}
+                        <div class="customer-account__fulfillment-fulfilled">
+                          <p>{{ order.fulfillment_status_label }}</p>
+                        </div>
+                      {% endif %}
                       <p>{{ order.total_price | money }}</p>
                     </div>
                   </div>
