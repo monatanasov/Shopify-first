@@ -1,39 +1,59 @@
 <div class="customer-account">
-  <h1>Account</h1>
+  <h1 class="customer-account__title">Account</h1>
 
-  {% assign number_of_orders = customer.orders | size %}
-  {% if number_of_orders > 0 %}
+  <div class="customer-account-flex">
 
-    <h2>Order history</h2>
+    <div class="customer-account__orders-wrapper">
+      <h2 class="customer-account__orders-title">Order history</h2>
 
-    {% paginate customer.orders by 5 %}
-      {% for order in customer.orders %}
+      <div class="customer-account__orders">
+        <div class="customer-account__grid">
 
-        {% if order.line_items.first.image %}
-          <img src="{{ order.line_items.first.image | image_url: "medium" }}" alt="{{ order.line_items.first.image.alt }}">
-        {% else %}
-          {{ 'product-1' | placeholder_svg_tag }}
-        {% endif %}
+          {% assign number_of_orders = customer.orders | size %}
+          {% if number_of_orders > 0 %}
 
-        <h3>
-          {{ order.name | link_to: order.customer_url }}
-        </h3>
-        <p>{{ order.financial_status }}</p>
 
-        <p>{{ order.fulfillment_status_label }}</p>
-        <p>{{ order.total_price | money }}</p>
-      {% endfor %}
+            {% paginate customer.orders by 5 %}
+              {% for order in customer.orders %}
+                <div class="customer-account__every-order">
+                  <div class="customer-account__every-order-media">
+                    {% if order.line_items.first.image %}
+                      <img src="{{ order.line_items.first.image | img_url: "large" }}" alt="{{ order.line_items.first.image.alt }}">
+                    {% else %}
+                      {{ 'product-1' | placeholder_svg_tag }}
+                    {% endif %}
+                  </div>
+                  <div class="customer-account__every-order-content">
+                    <div class="customer-account__every-order-content__left">
+                      <h3>
+                        {{ order.name | link_to: order.customer_url }}
+                      </h3>
+                      <p>{{ order.financial_status }}</p>
+                    </div>
+                    <div class="customer-account__every-order-content__right">
+                      <p class="customer-account__every-order-content__right-status">{{ order.fulfillment_status_label }}</p>
+                      <p>{{ order.total_price | money }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% render 'snippet-pagination', pagination: paginate %}
 
-      {% render 'snippet-pagination', pagination: paginate %}
+        {% endpaginate %}
+      </div>
+    {% else %}
+      <div class="customer-account__no-orders">
+        <h2>You currently don't have any orders</h2>
+      </div>
+    {% endif %}
 
-    {% endpaginate %}
-  {% else %}
-    <h2>You currently don't have any orders</h2>
-  {% endif %}
+    <div class="customer-account__account-details">
+      <h2>Account details</h2>
 
-  <h2>Account details</h2>
-
-  {{ customer.default_address | format_address }}
-  <a href="{{ routes.account_addresses_url }}">View addresses</a>
-
+      {{ customer.default_address | format_address }}
+      <a href="{{ routes.account_addresses_url }}">View addresses</a>
+    </div>
+  </div>
 </div>

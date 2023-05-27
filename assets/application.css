@@ -1283,3 +1283,66 @@ body {
 .customer-password__submit-btn:hover {
   background-color: #63b151;
 }
+
+                                                                    /*----------------------------
+                                                                            template CUSTOMER
+                                                                                ACCOUNT
+                                                                      ---------------------------- */
+
+
+.customer-account {
+  margin: 2rem 12rem;
+}
+
+.customer-account__title {
+  text-align: center;
+}
+
+.customer-account__orders-title {
+  margin-bottom: 2rem;
+}
+
+.customer-account-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.customer-account__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.customer-account__every-order {
+  border: 1px solid lightgrey;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.customer-account__every-order-media {
+  height: 12rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.customer-account__every-order-content {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customer-account__every-order-content__right-status {
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #222222;
+  border-radius: 6px;
+  padding: .25rem 1rem;
+}
+
+.customer-account__account-details {
+  border-left: 2px solid red;
+  padding-left: 2rem;
+}
