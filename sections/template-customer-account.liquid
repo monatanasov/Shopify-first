@@ -18,9 +18,12 @@
                 <div class="customer-account__every-order">
                   <div class="customer-account__every-order-media">
                     {% if order.line_items.first.image %}
-                      <img src="{{ order.line_items.first.image | img_url: "large" }}" alt="{{ order.line_items.first.image.alt }}">
+                      <img
+                        class="customer-account__every-order-media-img"
+                        src="{{ order.line_items.first.image | img_url: "large" }}"
+                        alt="{{ order.line_items.first.image.alt }}">
                     {% else %}
-                      {{ 'product-1' | placeholder_svg_tag }}
+                      {{ 'product-1' | placeholder_svg_tag: 'customer-account__every-order-media-img' }}
                     {% endif %}
                   </div>
                   <div class="customer-account__every-order-content">
