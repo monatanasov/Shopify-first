@@ -1,0 +1,39 @@
+<div class="customer-account">
+  <h1>Account</h1>
+
+  {% assign number_of_orders = customer.orders | size %}
+  {% if number_of_orders > 0 %}
+
+    <h2>Order history</h2>
+
+    {% paginate customer.orders by 5 %}
+      {% for order in customer.orders %}
+
+        {% if order.line_items.first.image %}
+          <img src="{{ order.line_items.first.image | image_url: "medium" }}" alt="{{ order.line_items.first.image.alt }}">
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+
+        <h3>
+          {{ order.name | link_to: order.customer_url }}
+        </h3>
+        <p>{{ order.financial_status }}</p>
+
+        <p>{{ order.fulfillment_status_label }}</p>
+        <p>{{ order.total_price | money }}</p>
+      {% endfor %}
+
+      {% render 'snippet-pagination', pagination: paginate %}
+
+    {% endpaginate %}
+  {% else %}
+    <h2>You currently don't have any orders</h2>
+  {% endif %}
+
+  <h2>Account details</h2>
+
+  {{ customer.default_address | format_address }}
+  <a href="{{ routes.account_addresses_url }}">View addresses</a>
+
+</div>
