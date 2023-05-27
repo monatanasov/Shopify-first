@@ -1,13 +1,13 @@
 <div class="customer-account">
   <h1 class="customer-account__title">Account</h1>
 
-  <div class="customer-account-flex">
+  <div class="customer-account__flex">
 
     <div class="customer-account__orders-wrapper">
       <h2 class="customer-account__orders-title">Order history</h2>
 
       <div class="customer-account__orders">
-        <div class="customer-account__grid">
+        <div class="customer-account__orders-flex">
 
           {% assign number_of_orders = customer.orders | size %}
           {% if number_of_orders > 0 %}

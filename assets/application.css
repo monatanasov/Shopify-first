@@ -1306,18 +1306,19 @@ body {
   width: 80%;
 }
 
-.customer-account-flex {
+.customer-account__flex {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.customer-account__grid {
+.customer-account__orders-flex {
   /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr) ) ;
   gap: 1rem; */
   display: flex;
   gap: 1rem;
+  justify-content: space-between;
 }
 
 .customer-account__every-order {
