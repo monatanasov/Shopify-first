@@ -1,0 +1,30 @@
+<div class="customer-order">
+
+  <div class="customer-order__header">
+    <div>
+      <h1>Order {{ order.name }}</h1>
+      <p>Placed on {{ order.created_at | date: format: 'date' }}</p>
+      <span>{{ order.financial_status_label }}</span>
+    </div>
+
+    <a href="{{ routes.account_url }}">Back to account</a>
+  </div>
+
+  <div class="customer-order__wrapper-grid">
+    {% for line_item in order.line_items %}
+      <div class="customer-order__content-grid">
+
+        {% if line_item.image %}
+          <div class="customer-order__content-image">
+            <img src="{{ line_item.image | img_url: 'medium' }}" alt="{{ line_item.image.alt }}">
+          </div>
+        {% else %}
+          <div class="customer-order__content-image">
+            {{ 'product-1' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+  </div>
+</div>
