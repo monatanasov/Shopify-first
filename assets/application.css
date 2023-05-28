@@ -1365,9 +1365,31 @@ body {
   padding: .10rem .5rem;
 }
 
+.customer-account__fulfillment-partial {
+  background-color: #FCAF45;
+  color: #ffffff;
+  border: 1px solid #FCAF45;
+  border-radius: 6px;
+  padding: .10rem .5rem;
+}
+
+.customer-account__fulfillment-cancelled p {
+  background-color: red;
+  color: #ffffff;
+  border: 1px solid red;
+  border-radius: 6px;
+  padding: .10rem .5rem;
+}
+
 .customer-account__account-details {
   border-left: 2px solid lightgrey;
   padding-left: 2rem;
+}
+
+.icon-refunded,
+.icon-paid {
+  color: #4a8f3a;
+  margin-left: .25rem;
 }
 
 
