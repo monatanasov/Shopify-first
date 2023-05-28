@@ -1408,7 +1408,7 @@ body {
 .customer-order__wrapper-grid {
   width: 100%;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .customer-order__content-grid {
@@ -1416,7 +1416,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border: 1px solid lightgrey;
-  border-radius: 6px;
   gap: 3rem;
 }
 
@@ -1456,4 +1455,32 @@ body {
 .customer-order__content-description {
   text-align: justify;
   overflow: hidden;
+}
+
+.custom-order__fulfilled-status {
+  padding: 1rem;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+}
+
+.custom-order__fulfilled-status-fulfilled {
+  display: inline-block;
+  padding: .25rem 1rem;
+  background-color: #4a8f3a;
+  color: #ffffff;
+}
+
+.custom-order__fulfilled-status-unfulfilled {
+  display: inline-block;
+  padding: .25rem 1rem;
+  background-color: red;
+  color: #ffffff;
+}
+
+.custom-order__fulfilled-status-partially {
+  display: inline-block;
+  padding: .25rem 1rem;
+  background-color: #FCAF45;
+  color: #ffffff;
 }

@@ -13,63 +13,91 @@
 
   <div class="customer-order__wrapper-grid">
     {% for line_item in order.line_items %}
-      <div class="customer-order__content-grid">
+      <div class="customer-order__content">
+        <div class="customer-order__content-grid">
 
-        {% if line_item.image %}
-          <div class="customer-order__content-image">
-            <img src="{{ line_item.image | img_url: 'medium' }}" alt="{{ line_item.image.alt }}">
-          </div>
-        {% else %}
-          <div class="customer-order__content-image">
-            {{ 'product-1' | placeholder_svg_tag }}
-          </div>
-        {% endif %}
+          {% if line_item.image %}
+            <div class="customer-order__content-image">
+              <img src="{{ line_item.image | img_url: 'medium' }}" alt="{{ line_item.image.alt }}">
+            </div>
+          {% else %}
+            <div class="customer-order__content-image">
+              {{ 'product-1' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
 
-        <div>
-          <h2 class="customer-order__content-item-title">{{ line_item.title | link_to: line_item.product.url }}</h2>
-
-          <table class="customer-order__content-table">
-            <tbody>
-              <tr>
-                <td>Price</td>
-                <td>{{ line_item.original_price | money }}</td>
-              </tr>
-              <tr>
-                <td>Quantity</td>
-                <td>{{ line_item.quantity }}</td>
-              </tr>
-              <tr>
-                <td>Final price</td>
-                <td>{{ line_item.final_line_price | money }}</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- more trunkated words breaks the footer of last order item -->
-          <div class="customer-order__content-description">
-            {{ line_item.product.description | truncatewords: 25 }}
-          </div>
-        </div>
-
-        <div>
-          <h2>Delivery address</h2>
           <div>
-            <!-- delivery address -->
-            {{ order.shipping_address | format_address }}
+            <h2 class="customer-order__content-item-title">{{ line_item.title | link_to: line_item.product.url }}</h2>
 
-          <!-- delivery address WITHOUT CUSTOMER name -->
-            <!--
-            <p>Address 1: {{ order.shipping_address.address1 }}</p>
-            <p>Address 2: {{ order.shipping_address.address2 }}</p>
-            <p>Street: {{ order.shipping_address.street }}</p>
-            <p>Province: {{ order.shipping_address.province }}</p>
-            <p>City: {{ order.shipping_address.city }}</p>
-            <p>ZIP: {{ order.shipping_address.zip }}</p>
-            <p>Country: {{ order.shipping_address.country }}</p>
-            -->
+            <table class="customer-order__content-table">
+              <tbody>
+                <tr>
+                  <td>Price</td>
+                  <td>{{ line_item.original_price | money }}</td>
+                </tr>
+                <tr>
+                  <td>Quantity</td>
+                  <td>{{ line_item.quantity }}</td>
+                </tr>
+                <tr>
+                  <td>Final price</td>
+                  <td>{{ line_item.final_line_price | money }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- more trunkated words breaks the footer of last order item -->
+            <div class="customer-order__content-description">
+              {{ line_item.product.description | truncatewords: 25 }}
+            </div>
+          </div>
+
+          <div>
+            <h2>Delivery address</h2>
+            <div>
+              <!-- delivery address -->
+              {{ order.shipping_address | format_address }}
+
+            <!-- delivery address WITHOUT CUSTOMER name -->
+              <!--
+              <p>Address 1: {{ order.shipping_address.address1 }}</p>
+              <p>Address 2: {{ order.shipping_address.address2 }}</p>
+              <p>Street: {{ order.shipping_address.street }}</p>
+              <p>Province: {{ order.shipping_address.province }}</p>
+              <p>City: {{ order.shipping_address.city }}</p>
+              <p>ZIP: {{ order.shipping_address.zip }}</p>
+              <p>Country: {{ order.shipping_address.country }}</p>
+              -->
+            </div>
           </div>
         </div>
-
+        <div class="custom-order__fulfilled-status">
+          <!-- Item is fulfilled -->
+          {% if line_item.successfully_fulfilled_quantity == line_item.quantity %}
+            <p class="custom-order__fulfilled-status-fulfilled">Fulfilled</p>
+            <p>Fulfilled items: {{ line_item.successfully_fulfilled_quantity }} of {{ line_item.quantity }}</p>
+            <p>Tracking company: {{ line_item.fulfillment.tracking_company }}</p>
+            <p>Tracking number: {{ line_item.fulfillment.tracking_number }}</p>
+            <!-- Item is NOT fulfilled -->
+          {% elsif line_item.successfully_fulfilled_quantity == 0 and line_item.quantity == 1 %}
+            <p class="custom-order__fulfilled-status-unfulfilled">UN-fulfilled</p>
+            <p>Fulfilled items: {{ line_item.successfully_fulfilled_quantity }}</p>
+            <p>Tracking company: {{ line_item.fulfillment.tracking_company }}</p>
+            <p>Tracking number: {{ line_item.fulfillment.tracking_number }}</p>
+            <!-- Item is NOT fulfilled -->
+          {% elsif line_item.successfully_fulfilled_quantity == 0 and line_item.quantity > 1 %}
+            <p class="custom-order__fulfilled-status-unfulfilled">UN-fulfilled</p>
+            <p>Fulfilled items: {{ line_item.successfully_fulfilled_quantity }}</p>
+            <p>Tracking company: {{ line_item.fulfillment.tracking_company }}</p>
+            <p>Tracking number: {{ line_item.fulfillment.tracking_number }}</p>
+            <!-- in every other situation - Item is partially fulfilled -->
+          {% else %}
+            <p class="custom-order__fulfilled-status-partially">Partially fulfilled</p>
+            <p>Fulfilled items: {{ line_item.successfully_fulfilled_quantity }}</p>
+            <p>Tracking company: {{ line_item.fulfillment.tracking_company }}</p>
+            <p>Tracking number: {{ line_item.fulfillment.tracking_number }}</p>
+          {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
