@@ -97,6 +97,10 @@
             <p>Tracking company: {{ line_item.fulfillment.tracking_company }}</p>
             <p>Tracking number: {{ line_item.fulfillment.tracking_number }}</p>
           {% endif %}
+          <a
+            target="_blank"
+            class="custom-order__fulfilled-status-btn"
+            href="{{ line_item.fulfillment.tracking_url }}">Track order</a>
         </div>
       </div>
     {% endfor %}
