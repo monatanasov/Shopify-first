@@ -105,4 +105,55 @@
       </div>
     {% endfor %}
   </div>
+
+  <div class="custom-order__biling-information">
+    <div>
+      <h3>Billing address: {{ order.billing_address | format_address }}</h3>
+    </div>
+
+    <div>
+      <h3>Payment information</h3>
+      {% for transaction in order.transactions %}
+        {% assign credit_card_company = transaction.payment_details.credit_card_company %}
+        {% assign credit_card_last_four_digits = transaction.payment_details.credit_card_number %}
+        {% if credit_card_company %}
+          {% case transaction.status_label %}
+            {% when 'Failure' %}
+            <p>{{ credit_card_company }}</p>
+            <p>{{ credit_card_last_four_digits }}</p>
+            <p class="custom-order__biling-information-transaction__failure">{{ transaction.status_label }}</p>
+          {% else %}
+            <p>{{ credit_card_company }}</p>
+            <p>{{ credit_card_last_four_digits }}</p>
+            <p class="custom-order__biling-information-transaction__success">{{ transaction.status_label }}</p>
+          {% endcase %}
+
+        {% else %}
+          <p>This order is manually placed by
+            <b>{{ shop.name }}</b>
+          </p>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div>
+      <table class="custom-order__biling-information-table">
+        <tbody>
+          <tr>
+            <td>Subtotal</td>
+            <td>{{ order.subtotal_price | money }}</td>
+          </tr>
+          <tr>
+            <td>Shipping</td>
+            <td>{{ order.shipping_price | money }}</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>{{ order.total_price | money }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>

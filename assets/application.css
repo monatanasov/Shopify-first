@@ -1480,7 +1480,7 @@ body {
 }
 
 .custom-order__fulfilled-status {
-  padding: 1rem;
+  padding: 1rem 3rem;
   border-right: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
@@ -1517,4 +1517,39 @@ body {
 
 .custom-order__fulfilled-status-btn:hover {
   background-color: #63b151;
+}
+
+.custom-order__biling-information {
+  margin-top: 2rem;
+  padding: 3rem;
+  border: 1px solid lightgrey;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background-color: rgb(243, 243, 243);
+}
+
+.custom-order__biling-information-transaction__failure {
+  display: inline-block;
+  padding: .25rem 1rem;
+  background-color: red;
+  color: #ffffff;
+}
+
+.custom-order__biling-information-transaction__success {
+  display: inline-block;
+  padding: .25rem 1rem;
+  background-color: #4a8f3a;
+  color: #ffffff;
+}
+
+.custom-order__biling-information-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.custom-order__biling-information-table td {
+  border: 1px solid lightgrey;
+  padding: .25rem .5rem;
+  font-weight: bolder;
 }
