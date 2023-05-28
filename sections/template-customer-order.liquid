@@ -4,11 +4,12 @@
     <div>
       <h1>Order {{ order.name }}</h1>
       <p>Placed on {{ order.created_at | date: format: 'date' }}</p>
-      <span>{{ order.financial_status_label }}</span>
+      <span class="customer-order__header-payment-status">{{ order.financial_status_label }}</span>
     </div>
 
-    <a href="{{ routes.account_url }}">Back to account</a>
+    <a class="customer-order__header-btn" href="{{ routes.account_url }}">Back to account</a>
   </div>
+
 
   <div class="customer-order__wrapper-grid">
     {% for line_item in order.line_items %}
@@ -25,9 +26,9 @@
         {% endif %}
 
         <div>
-          <h1>{{ line_item.title | link_to: line_item.product.url }}</h1>
+          <h2 class="customer-order__content-item-title">{{ line_item.title | link_to: line_item.product.url }}</h2>
 
-          <table>
+          <table class="customer-order__content-table">
             <tbody>
               <tr>
                 <td>Price</td>
@@ -45,12 +46,13 @@
           </table>
 
           <!-- more trunkated words breaks the footer of last order item -->
-          <p>{{ line_item.product.description | truncatewords: 5 }}</p>
-
+          <div class="customer-order__content-description">
+            {{ line_item.product.description | truncatewords: 25 }}
+          </div>
         </div>
 
         <div>
-          <h1>Delivery address</h1>
+          <h2>Delivery address</h2>
           <div>
             <!-- delivery address -->
             {{ order.shipping_address | format_address }}
