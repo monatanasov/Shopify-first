@@ -1,0 +1,28 @@
+<div class="customer-addresses">
+  <div>
+    <h1>Addresses</h1>
+    <button type="button">Create new address</button>
+    <a href="{{ routes.account_url }}">Back to account</a>
+  </div>
+
+  <div>
+    {% paginate customer.addresses by 10 %}
+      <div>
+        {% for address in customer.addresses %}
+          <div>
+            {% if address == customer.default_address %}
+              <span>Default</span>
+            {% endif %}
+            <div>
+              {{ address | format_address }}
+            </div>
+            <div>
+              <button>Edit</button>
+              <button>Delete</button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endpaginate %}
+  </div>
+</div>
