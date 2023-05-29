@@ -1677,3 +1677,42 @@ margin-bottom: 1rem;
   border: none;
   cursor: pointer;
 }
+
+.customer-addresses__modal-form__mb {
+  margin-bottom: .5rem;
+}
+
+.customer-addresses__modal-content__form label {
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+}
+
+.customer-addresses__modal-content__form input,
+.customer-addresses__modal-content__form select {
+  width: 100%;
+  border: 1px solid lightgrey;
+}
+
+.customer-addresses__modal-content__form-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.customer-addresses__modal-content__form-btn-create {
+  width: 50%;
+  background-color: #4a8f3a;
+  border: 1px solid #4a8f3a;
+  color: #ffffff;
+}
+
+.customer-addresses__modal-content__form-btn-create:hover {
+  background-color: #63b151;
+}
+
+.customer-addresses__modal-content__form-btn-cancel {
+  width: 50%;
+  background-color: #ffffff;
+  border: 1px solid lightgrey;
+  color: black;
+}

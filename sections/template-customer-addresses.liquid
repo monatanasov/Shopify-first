@@ -1,16 +1,117 @@
-<div class="customer-addresses">
+<div class="customer-addresses" x-data="{ new_address: false}">
   <div class="customer-addresses__header">
     <h1>Addresses</h1>
-    <button class="customer-addresses__header-btn" type="button">Create new address</button>
+    <button
+      x-on:click="new_address = true"
+      class="customer-addresses__header-btn"
+      type="button">Create new address</button>
     <a href="{{ routes.account_url }}">Back to account</a>
   </div>
 
   <!-- Create new address Modal box START -->
-  <div class="customer-addresses__modal">
-    <div class="customer-addresses__modal-wrapper">
+  <div x-show="new_address" class="customer-addresses__modal">
+    <div class="customer-addresses__modal-wrapper" @click.away="new_address = false">
       <div class="customer-addresses__modal-content">
         <h2>New address</h2>
-        <button class="customer-addresses__modal-icon-close">{% render 'icon-close' %}</button>
+        <button x-on:click="new_address = false" class="customer-addresses__modal-icon-close">{% render 'icon-close' %}</button>
+      </div>
+      <div class="customer-addresses__modal-content__form">
+        {% form 'customer_address', customer.new_address %}
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_fname_{{ form.id }}">First name</label>
+            <input
+              type="text"
+              name="address[first_name]"
+              id="address_fname_{{ form.id }}"
+              value="{{ form.first_name }}">
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_lname_{{ form.id }}">Last name</label>
+            <input
+              type="text"
+              name="address[last_name]"
+              id="address_lname_{{ form.id }}"
+              value="{{ form.last_name }}">
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_company_{{ form.id }}">Company</label>
+            <input
+              type="text"
+              name="address[company]"
+              id="address_company_{{ form.id }}"
+              value="{{ form.company }}">
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_address1_{{ form.id }}">Address 1</label>
+            <input
+              type="text"
+              name="address[address1]"
+              id="address_address1_{{ form.id }}"
+              value="{{ form.address1 }}">
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_address2_{{ form.id }}">Address 2</label>
+            <input
+              type="text"
+              name="address[address2]"
+              id="address_address2_{{ form.id }}"
+              value="{{ form.address2 }}">
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_city_{{ form.id }}">City</label>
+            <input
+              type="text"
+              name="address[city]"
+              id="address_city_{{ form.id }}"
+              value="{{ form.city }}">
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_country_{{ form.id }}">Country</label>
+            <select
+              name="address[country]"
+              id="address_country_{{ form.id }}"
+              value="{{ form.country }}">
+              {{ all_country_option_tags }}
+            </select>
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_province_{{ form.id }}">Province</label>
+            <select
+              name="address[province]"
+              id="address_province_{{ form.id }}"
+              value="{{ form.province }}"></select>
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_zip_{{ form.id }}">Postal/ZIP code</label>
+            <input
+              type="text"
+              name="address[zip]"
+              id="address_zip_{{ form.id }}"
+              value="{{ form.zip }}">
+          </div>
+
+          <div class="customer-addresses__modal-form__mb">
+            <label for="address_phone_{{ form.id }}">Phone number</label>
+            <input
+              type="tel"
+              name="address[phone]"
+              id="address_phone_{{ form.id }}"
+              value="{{ form.phone }}">
+          </div>
+
+          <div class="customer-addresses__modal-content__form-btns">
+            <button class="customer-addresses__modal-content__form-btn-create" type="submit">Create address</button>
+            <button class="customer-addresses__modal-content__form-btn-cancel" type="reset">Cancel</button>
+          </div>
+        {% endform %}
       </div>
     </div>
   </div>
