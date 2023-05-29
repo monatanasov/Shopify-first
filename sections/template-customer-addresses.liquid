@@ -4,6 +4,18 @@
     <button class="customer-addresses__header-btn" type="button">Create new address</button>
     <a href="{{ routes.account_url }}">Back to account</a>
   </div>
+
+  <!-- Create new address Modal box START -->
+  <div class="customer-addresses__modal">
+    <div class="customer-addresses__modal-wrapper">
+      <div class="customer-addresses__modal-content">
+        <h2>New address</h2>
+        <button class="customer-addresses__modal-icon-close">{% render 'icon-close' %}</button>
+      </div>
+    </div>
+  </div>
+  <!-- Create new address Modal box END -->
+
   <div class="customer-addresses__body">
     <div>
       {% paginate customer.addresses by 10 %}
