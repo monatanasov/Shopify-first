@@ -1559,4 +1559,81 @@ body {
                                                                                 ORDER
                                                                       ---------------------------- */
 
+.customer-addresses {
+  margin: 2rem 24rem;
+}
 
+.customer-addresses__header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.customer-addresses__header-btn {
+  background-color: #4a8f3a;
+  color: #ffffff;
+  border: 1px solid #4a8f3a;
+  padding: 0rem 2rem;
+  font-weight: bold;
+}
+
+.customer-addresses__header-btn:hover {
+  background-color: #63b151;
+}
+
+.customer-addresses__body {
+  margin: 0rem 6rem;
+}
+
+.customer-addresses__body-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.customer-addresses__body-content {
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  padding: .5rem;
+}
+
+.customer-addresses__body-content-address-label {
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #222222;
+  padding: .25rem 0rem;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.customer-addresses__body-content-address {
+  text-align: center;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.customer-addresses__body-content-address-btns {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+.customer-addresses__body-content-address-btn__edit {
+  width: 100%;
+  background-color: #4a8f3a;
+  border: 1px solid #4a8f3a;
+  color: #ffffff;
+}
+
+.customer-addresses__body-content-address-btn__delete {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid lightgrey;
+  color: black;
+}
+
+.customer-addresses__body-content-address-btn__edit:hover {
+  background-color: #63b151;
+}

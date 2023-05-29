@@ -1,28 +1,35 @@
 <div class="customer-addresses">
-  <div>
+  <div class="customer-addresses__header">
     <h1>Addresses</h1>
-    <button type="button">Create new address</button>
+    <button class="customer-addresses__header-btn" type="button">Create new address</button>
     <a href="{{ routes.account_url }}">Back to account</a>
   </div>
-
-  <div>
-    {% paginate customer.addresses by 10 %}
-      <div>
-        {% for address in customer.addresses %}
-          <div>
-            {% if address == customer.default_address %}
-              <span>Default</span>
-            {% endif %}
-            <div>
-              {{ address | format_address }}
+  <div class="customer-addresses__body">
+    <div>
+      {% paginate customer.addresses by 10 %}
+        <div class="customer-addresses__body-wrapper">
+          {% for address in customer.addresses %}
+            <div class="customer-addresses__body-content">
+              {% if address == customer.default_address %}
+                <div>
+                  <span class="customer-addresses__body-content-address-label">Default address</span>
+                </div>
+              {% else %}
+                <div>
+                  <span class="customer-addresses__body-content-address-label">Make default</span>
+                </div>
+              {% endif %}
+              <div class="customer-addresses__body-content-address">
+                {{ address | format_address }}
+              </div>
+              <div class="customer-addresses__body-content-address-btns">
+                <button class="customer-addresses__body-content-address-btn__edit">Edit</button>
+                <button class="customer-addresses__body-content-address-btn__delete">Delete</button>
+              </div>
             </div>
-            <div>
-              <button>Edit</button>
-              <button>Delete</button>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    {% endpaginate %}
+          {% endfor %}
+        </div>
+      {% endpaginate %}
+    </div>
   </div>
 </div>
