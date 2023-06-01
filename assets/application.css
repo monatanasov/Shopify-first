@@ -85,7 +85,7 @@ select {
 
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
                                                             /*--------------------------
@@ -149,24 +149,24 @@ body {
        Announcement bar
 ----------------------------*/
 .announcement-bar {
-    position: relative;
-    background-color: #222222;
-    display: flex;
-    padding: 0rem 12rem;
-    justify-content: flex-end;
-    align-items: center;
-    border-bottom: 1px solid #ffffff;
+  position: relative;
+  background-color: #222222;
+  display: flex;
+  padding: 0rem 12rem;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #ffffff;
 }
 
 .announcement-bar .announcement-bar__content {
-    color: #ffffff;
-    font-size: small;
-    font-weight: bold;
-    margin: 0 auto;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: #ffffff;
+  font-size: small;
+  font-weight: bold;
+  margin: 0 auto;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .annountcement-bar__subscribe-btn {
@@ -184,8 +184,8 @@ body {
 }
 
 .announcement-bar .annountcement-bar__subscribe-icon {
-    color: #ffffff;
-    padding-right: .25rem;
+  color: #ffffff;
+  padding-right: .25rem;
 }
 
                                                             /*--------------------
@@ -249,7 +249,6 @@ body {
   gap: 1rem;
   padding-right: 2rem;
   border-right: 1px solid lightgray;
-
 }
 
 .header .header__content .header_all-btns .header__cart {
@@ -260,7 +259,6 @@ body {
   margin-right: .5rem;
   font-size: 1.5rem;
 }
-
 
                                                             /*--------------------
                                                                   NAVIGATION
@@ -408,6 +406,7 @@ body {
   background-color: #222222;
   color: #ffffff;
 }
+
                                                                     /*-------------------
                                                                         FOOTER END
                                                                     -------------------*/
@@ -451,6 +450,7 @@ body {
   border: 1px solid lightgrey;
   border-radius: 6px;
 }
+
                                                                       /*-------------
                                                                           404 page
                                                                       --------------- */
@@ -486,6 +486,7 @@ body {
                                                                         Template ARTICLE
                                                                               PAGE
                                                                       ------------------- */
+
 .template__article {
   margin: 2rem 12rem;
 }
@@ -555,6 +556,7 @@ body {
                                                                         Template BLOG
                                                                              PAGE
                                                                       ------------------- */
+
 .template__blog {
   margin: 2rem 12rem;
 }
@@ -580,6 +582,7 @@ body {
   height: 31rem;
   padding: 1rem;
 }
+
 .template__blog-article__title {
   margin-bottom: .5rem;
   height: 4rem;
@@ -640,6 +643,7 @@ body {
 .template__blog-readmore a:hover {
   background-color: #63b151;
 }
+
                                                                       /*-------------
                                                                           CART page
                                                                       --------------- */
@@ -753,6 +757,7 @@ body {
                                                                           CART page
                                                                           when EMPTY
                                                                       --------------- */
+
 .cart__empty {
   display: flex;
   flex-direction: column;
@@ -896,7 +901,6 @@ body {
   color:black;
 }
 
-
                                                                       /*----------------------------
                                                                               template-PAGE
                                                                       ---------------------------- */
@@ -1010,6 +1014,7 @@ body {
   overflow: hidden;
   height: 19rem;
 }
+
 .product-media__border img,
 .product-media__border video,
 .product-media__border iframe {
@@ -1017,6 +1022,7 @@ body {
   width: 100%;
   object-fit: contain;
 }
+
                                                                       /*----------------------------
                                                                             template-PRODUCT
                                                                       ---------------------------- */
@@ -1253,7 +1259,6 @@ body {
                                                                                   RESET
                                                                       ---------------------------- */
 
-
 .customer-password {
   margin: 2rem 12rem;
   display: flex;
@@ -1391,7 +1396,6 @@ body {
   color: #4a8f3a;
   margin-left: .25rem;
 }
-
 
                                                                     /*----------------------------
                                                                             template CUSTOMER
@@ -1610,8 +1614,8 @@ body {
 
 .customer-addresses__body-content-address {
   text-align: center;
-margin-top: 1rem;
-margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .customer-addresses__body-content-address-btns {
