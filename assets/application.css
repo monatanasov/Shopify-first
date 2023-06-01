@@ -1082,6 +1082,28 @@ body {
   margin: 2rem 12rem;
 }
 
+.template-product__information-prod-button {
+  background-color: #4a8f3a;
+  border: #4a8f3a;
+  color: #ffffff;
+  padding: .10rem .75rem;
+}
+.template-product__information-prod-button:hover {
+  background-color: #63b151;
+  border: #63b151;
+  color: #ffffff;
+  padding: .10rem .75rem;
+}
+
+.template-product__information-prod-button:disabled {
+  background-color: #4a8f3a;
+  border: #4a8f3a;
+  color: #ffffff;
+  text-decoration: line-through;
+  text-decoration-color: #222222;
+  padding: .10rem .75rem;
+}
+
                                                                      /*----------------------------
                                                                             template-SEARCH
                                                                       ---------------------------- */

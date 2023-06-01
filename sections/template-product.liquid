@@ -62,16 +62,19 @@
             {% when 'description' %}
             <span class="template-product__information-prod-description">{{ product.description }}</span>
             {% when 'checkout_buttons' %}
-            <button
-              type="submit"
-              name="add"
-              {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
-              {% if product.selected_or_first_available_variant.available == false %}
-                Sold out
-              {% else %}
-                Add to cart
-              {% endif %}
-            </button>
+            <div>
+              <button
+                class="template-product__information-prod-button"
+                type="submit"
+                name="add"
+                {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+                {% if product.selected_or_first_available_variant.available == false %}
+                  Sold out
+                {% else %}
+                  Add to cart
+                {% endif %}
+              </button>
+            </div>
           {% endcase %}
         {% endfor %}
 
