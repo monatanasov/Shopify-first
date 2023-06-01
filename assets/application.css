@@ -1716,3 +1716,77 @@ margin-bottom: 1rem;
   border: 1px solid lightgrey;
   color: black;
 }
+
+                                                                    /*----------------------------
+                                                                            template CUSTOMER
+                                                                            ACCOUNT ACTIVATION
+                                                                      ---------------------------- */
+
+.cust-activate-account {
+  margin: 2rem 12rem;
+}
+
+.cust-activate-account__header {
+  text-align: center;
+}
+
+.cust-activate-account__header-title {
+  margin-bottom: .5rem;
+}
+
+.cust-activate-account__header-subtitle {
+  margin-bottom: 1rem;
+}
+
+.cust-activate-account__form {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cust-activate-account__form form {
+  width: 20rem;
+}
+
+.cust-activate-account__form input {
+  display: block;
+  width: 100%;
+  border: 1px solid lightgrey;
+}
+
+.cust-activate-account__form label {
+  font-weight: bold;
+}
+
+.cust-activate-account__form-buttons {
+  margin-top: .5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.cust-activate-account__form-buttons-activate {
+  width: 100%;
+  background-color: #4a8f3a;
+  border: #4a8f3a;
+  color: #ffffff;
+}
+
+.cust-activate-account__form-buttons-activate:hover {
+  background-color: #63b151;
+}
+
+.cust-activate-account__form-buttons-decline {
+  width: 100%;
+  background-color: #ffffff;
+  color: #222222;
+  border: 1px solid #222222;
+}
+
+.cust-activate-account__form-buttons-decline:hover {
+  background-color: #63b151;
+  border: 1px solid #63b151;
+  color: #ffffff;
+}

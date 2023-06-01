@@ -1,7 +1,7 @@
 <div class="cust-activate-account">
-  <div>
-    <h1>Create account</h1>
-    <p>Create your password to activate your account</p>
+  <div class="cust-activate-account__header">
+    <h1 class="cust-activate-account__header-title">Activate your account</h1>
+    <p class="cust-activate-account__header-subtitle">Create your password to activate your account</p>
   </div>
 
   <div class="cust-activate-account__form">
@@ -34,8 +34,11 @@
       </div>
 
       <div class="cust-activate-account__form-buttons">
-        <button type="submit">Activate account</button>
-        <button type="submit" name="decline">Decline invitation</button>
+        <button class="cust-activate-account__form-buttons-activate" type="submit">Activate account</button>
+        <button
+          class="cust-activate-account__form-buttons-decline"
+          type="submit"
+          name="decline">Decline invitation</button>
       </div>
     {% endform %}
   </div>
