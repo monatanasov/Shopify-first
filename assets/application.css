@@ -258,6 +258,22 @@ body {
 .header .header__content .header__cart i {
   margin-right: .5rem;
   font-size: 1.5rem;
+  position: relative;
+}
+
+.header__cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+  background-color: #222222;
+}
+
+.header__cart-count:hover {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #222222;
 }
 
                                                             /*--------------------
