@@ -262,18 +262,20 @@ body {
 }
 
 .header__cart-count {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-
   background-color: #222222;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  font-size: .75rem;
+  padding: .30rem;
+  border-radius: 100%;
+  transition: all 400ms ease-in-out;
 }
 
-.header__cart-count:hover {
+/* scale cart item count when Hovering on PARENT div --> header__cart  */
+.header__cart:hover .header__cart-count {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: #222222;
+  transform: scale(1.25);
 }
 
                                                             /*--------------------
