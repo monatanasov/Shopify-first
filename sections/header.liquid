@@ -75,18 +75,17 @@
       <ul role="list">
         {% for link in linklists.main-menu.links %}
           <!-- empty div to hold content /for now/ -->
-          <!-- TODO -->
-          <!-- submenu opens with link.id but link.id stays empty -->
-            <div x-data="{ submenu_{{ link.id }}: false }"> {% if link.links != blank %}
+          <!-- submenu needs better workaround. That works for now -->
+            <div x-data="{ submenu_{{ forloop.index }}: false }"> {% if link.links != blank %}
               <li>
-                <button x-on:click="submenu_{{ link.id }} = ! submenu_{{ link.id }}" class="header__navigation-dropdown">
+                <button x-on:click="submenu_{{ forloop.index }} = ! submenu_{{ forloop.index }}" class="header__navigation-dropdown">
                   {{ link.title }}
                   <i class="fas fa-chevron-down"></i>
                 </button>
 
                 <div
-                  x-show="submenu_{{ link.id }}"
-                  @click.away="submenu_{{ link.id }} = ! submenu_{{ link.id }}"
+                  x-show="submenu_{{ forloop.index }}"
+                  @click.away="submenu_{{ forloop.index }} = ! submenu_{{ forloop.index }}"
                   class="header__navigation-dropwrapper">
                   {% for chieldlink in link.links %}
                     <a href="{{ chieldlink.url }}">{{ chieldlink.title }}</a>
