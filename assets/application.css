@@ -1678,6 +1678,12 @@ body {
   color: black;
 }
 
+.customer-addresses__body-content-address-btn__delete:hover {
+  background-color: #4a8f3a;
+  border: 1px solid #63b151;
+  color: #ffffff;
+}
+
 .customer-addresses__body-content-address-btn__edit:hover {
   background-color: #63b151;
 }
