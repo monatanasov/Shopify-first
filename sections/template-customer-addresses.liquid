@@ -1,4 +1,4 @@
-<div class="customer-addresses" x-data="{ new_address: false}">
+<div class="customer-addresses" x-data="{ new_address: false }">
   <div class="customer-addresses__header">
     <h1>Addresses</h1>
     <button
@@ -109,7 +109,7 @@
 
           <div class="customer-addresses__modal-content__form-btns">
             <button class="customer-addresses__modal-content__form-btn-create" type="submit">Create address</button>
-            <button class="customer-addresses__modal-content__form-btn-cancel" type="reset">Cancel</button>
+            <button class="customer-addresses__modal-content__form-btn-cancel" type="reset">Clear</button>
           </div>
         {% endform %}
       </div>
@@ -122,7 +122,7 @@
       {% paginate customer.addresses by 10 %}
         <div class="customer-addresses__body-wrapper">
           {% for address in customer.addresses %}
-            <div class="customer-addresses__body-content">
+            <div x-data="{ address_{{ address.id }}: false }" class="customer-addresses__body-content">
               {% if address == customer.default_address %}
                 <div>
                   <span class="customer-addresses__body-content-address-label">Default address</span>
@@ -136,8 +136,127 @@
                 {{ address | format_address }}
               </div>
               <div class="customer-addresses__body-content-address-btns">
-                <button class="customer-addresses__body-content-address-btn__edit">Edit</button>
-                <button class="customer-addresses__body-content-address-btn__delete">Delete</button>
+                <button x-on:click="address_{{ address.id }} = true" class="customer-addresses__body-content-address-btn__edit">Edit</button>
+                <!-- Not the best way to delete an address but it works for now -->
+                <!-- JavaScript must be used to promt customers confirmation before actual deletion -->
+                <form method="post" action="/account/addresses/{{ address.id }}">
+                  <input
+                    type="hidden"
+                    name="_method"
+                    value="delete">
+                  <button class="customer-addresses__body-content-address-btn__delete">Delete</button>
+                </form>
+              </div>
+
+              <!-- EDIT addresses MODAL BOX -->
+              <div x-show="address_{{ address.id }}" class="customer-addresses__edit-modal">
+                <div class="customer-addresses__edit-modal-wrapper">
+                  <div class="customer-addresses__edit-modal-content">
+                    <h2>Edit address</h2>
+                    <button x-on:click="address_{{ address.id }} = false" class="customer-addresses__edit-modal-icon-close">{% render 'icon-close' %}</button>
+                  </div>
+                  <div class="customer-addresses__edit-modal-content__form">
+                    <!-- Passing Address variable to form to tell HER we are going to edit this address-->
+                    {% form 'customer_address', address %}
+                      <!-- ALL classes are COPIED from above ones and its names won't be changed atm -->
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_fname_{{ form.id }}">First name</label>
+                        <input
+                          type="text"
+                          name="address[first_name]"
+                          id="address_fname_{{ form.id }}"
+                          value="{{ form.first_name }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_lname_{{ form.id }}">Last name</label>
+                        <input
+                          type="text"
+                          name="address[last_name]"
+                          id="address_lname_{{ form.id }}"
+                          value="{{ form.last_name }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_company_{{ form.id }}">Company</label>
+                        <input
+                          type="text"
+                          name="address[company]"
+                          id="address_company_{{ form.id }}"
+                          value="{{ form.company }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_address1_{{ form.id }}">Address 1</label>
+                        <input
+                          type="text"
+                          name="address[address1]"
+                          id="address_address1_{{ form.id }}"
+                          value="{{ form.address1 }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_address2_{{ form.id }}">Address 2</label>
+                        <input
+                          type="text"
+                          name="address[address2]"
+                          id="address_address2_{{ form.id }}"
+                          value="{{ form.address2 }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_city_{{ form.id }}">City</label>
+                        <input
+                          type="text"
+                          name="address[city]"
+                          id="address_city_{{ form.id }}"
+                          value="{{ form.city }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_country_{{ form.id }}">Country</label>
+                        <select
+                          name="address[country]"
+                          id="address_country_{{ form.id }}"
+                          value="{{ form.country }}">
+                          {{ all_country_option_tags }}
+                        </select>
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_province_{{ form.id }}">Province</label>
+                        <select
+                          name="address[province]"
+                          id="address_province_{{ form.id }}"
+                          value="{{ form.province }}"></select>
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_zip_{{ form.id }}">Postal/ZIP code</label>
+                        <input
+                          type="text"
+                          name="address[zip]"
+                          id="address_zip_{{ form.id }}"
+                          value="{{ form.zip }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__mb">
+                        <label for="address_phone_{{ form.id }}">Phone number</label>
+                        <input
+                          type="tel"
+                          name="address[phone]"
+                          id="address_phone_{{ form.id }}"
+                          value="{{ form.phone }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-content__form-btns">
+                        <button class="customer-addresses__modal-content__form-btn-create" type="submit">Edit address</button>
+                        <button class="customer-addresses__modal-content__form-btn-cancel" type="reset">Reset</button>
+                      </div>
+
+                    {% endform %}
+                  </div>
+                </div>
               </div>
             </div>
           {% endfor %}
