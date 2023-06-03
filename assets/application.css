@@ -317,12 +317,13 @@ body {
   max-width: 30%;
   overflow: hidden;
   position: absolute;
-  border: 1px solid gray;
+  border: 1px solid lightgrey;
   border-radius: .5rem;
   padding: .5rem 1rem;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
 }
 
 .header__navigation-dropwrapper a:hover {
