@@ -3,7 +3,8 @@
   <div
     x-show="announcementBar"
     class="announcement-bar__hidden"
-    @click.away="announcementBar = false">
+    @click.away="announcementBar = false"
+    x-cloak>
     <div class="announcement-bar__icon-close" x-on:click="announcementBar = false">
       {% render 'icon-close' %}
     </div>
@@ -86,7 +87,8 @@
                 <div
                   x-show="submenu_{{ forloop.index }}"
                   @click.away="submenu_{{ forloop.index }} = ! submenu_{{ forloop.index }}"
-                  class="header__navigation-dropwrapper">
+                  class="header__navigation-dropwrapper"
+                  x-cloak>
                   {% for chieldlink in link.links %}
                     <a href="{{ chieldlink.url }}">{{ chieldlink.title }}</a>
                   {% endfor %}

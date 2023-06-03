@@ -9,7 +9,10 @@
   </div>
 
   <!-- Create new address Modal box START -->
-  <div x-show="new_address" class="customer-addresses__modal">
+  <div
+    x-show="new_address"
+    class="customer-addresses__modal"
+    x-cloak>
     <div class="customer-addresses__modal-wrapper" @click.away="new_address = false">
       <div class="customer-addresses__modal-content">
         <h2>New address</h2>
@@ -150,8 +153,11 @@
               </div>
 
               <!-- EDIT addresses MODAL BOX -->
-              <div x-show="address_{{ address.id }}" class="customer-addresses__edit-modal">
-                <div class="customer-addresses__edit-modal-wrapper">
+              <div
+                x-show="address_{{ address.id }}"
+                class="customer-addresses__edit-modal"
+                x-cloak>
+                <div class="customer-addresses__edit-modal-wrapper" @click.away="address_{{ address.id }} = false">
                   <div class="customer-addresses__edit-modal-content">
                     <h2>Edit address</h2>
                     <button x-on:click="address_{{ address.id }} = false" class="customer-addresses__edit-modal-icon-close">{% render 'icon-close' %}</button>
