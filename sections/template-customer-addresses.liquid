@@ -107,6 +107,11 @@
               value="{{ form.phone }}">
           </div>
 
+          <div class="customer-addresses__modal-form__defcheckbox">
+            {{ form.set_as_default_checkbox }}
+            <label for="address_default_address_{{ form.id }}">SET AS DEFAULT ADDRESS</label>
+          </div>
+
           <div class="customer-addresses__modal-content__form-btns">
             <button class="customer-addresses__modal-content__form-btn-create" type="submit">Create address</button>
             <button class="customer-addresses__modal-content__form-btn-cancel" type="reset">Clear</button>
@@ -126,10 +131,6 @@
               {% if address == customer.default_address %}
                 <div>
                   <span class="customer-addresses__body-content-address-label">Default address</span>
-                </div>
-              {% else %}
-                <div>
-                  <span class="customer-addresses__body-content-address-label">Make default</span>
                 </div>
               {% endif %}
               <div class="customer-addresses__body-content-address">
@@ -247,6 +248,11 @@
                           name="address[phone]"
                           id="address_phone_{{ form.id }}"
                           value="{{ form.phone }}">
+                      </div>
+
+                      <div class="customer-addresses__modal-form__defcheckbox">
+                        {{ form.set_as_default_checkbox }}
+                        <label for="address_default_address_{{ form.id }}">SET AS DEFAULT ADDRESS</label>
                       </div>
 
                       <div class="customer-addresses__modal-content__form-btns">
