@@ -795,9 +795,11 @@ body {
 }
 
 .collection__page-back-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.collection__page-back-btn a {
   text-decoration: none;
 }
 
